@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster Two">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./scss/details.css">
+    
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type="text/javascript" src='./js/all.js'></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container-fluid">
+	<div id="flipkart-navbar">
+    <div class="container">
+    <<div class="row row1">
+            <ul class="largenav pull-right">
+                <li class="upper-links"><a class="links" href="./templates/signup.html" style="color: white">Home</a></li>
+                <li class="upper-links"><a class="links" href="./templates/signup.html" style="color: white">About Us</a></li>
+                <li class="upper-links"><a class="links" href="./templates/signup.html" style="color: white">Add Event</a></li>
+                <li class="upper-links"><a class="links" href="./signup.html" style="color: white">Sign Up</a></li>
+                <li class="upper-links"><a class="links" href="./signup.html" style="color: white">Sign In</a></li>
+            </ul>
+        </div>
+        <div class="row row2">
+            <div class="col-sm-2">
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()" style="color: pink">☰ Events Manager</span></h2>
+                <h1 style="margin:0px;"><span class="largenav brand" style="color: pink;font-size: 1.2em">Events~manager</span></h1>
+            </div>
+            <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
+                <div class="row">
+                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Discover Event Centers" name="" style="font-family: 'Lobster Two', serif;">
+                    <button class="btn flipkart-navbar-button col-xs-1 searchbtn">
+                        <i class='fa fa-search'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mySidenav" class="sidenav">
+    <div class="container" style="background-color: pink; padding-top: 10px;">
+        <span class="sidenav-heading">Sign in</span>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    </div>
+    <a href="./signup.html" class="sidenav-links">Sign In</a>
+    <a href="./signup.html" class="sidenav-links">Sign Up</a>
+    <a href="./signup.html" class="sidenav-links">About Us</a>
+    <a href="./signup.html" class="sidenav-links">Add event</a>
+    <a href="./signup.html" class="sidenav-links">home</a>
+</div>
+</div>
+
+<h3 class="text-center" style="color: white">Rogaros Events Center</h3>
+<div class="row row-one">
+	<div class="col-xs-6 col-sm-6 col-lg-6 describe-block"> 
+		<img src="./images/wedding.jpg">
+	</div>
+	<div class="col-xs-6 col-sm-6 col-lg-6 describe-block"> 
+		<p style="font-size: 3em;color: white">Three Large Projectors<br> for easy viewing </p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-6 col-sm-6 col-lg-6 describe-block"> 
+		<img src="./images/wedding.jpg">
+	</div>
+	<div class="col-xs-6 col-sm-6 col-lg-6 describe-block"> 
+		<p style="font-size: 3em;color: white">Located In the Heart<br>Of Victoria Garden city<br><span style="font-size: 0.5em">123 road,Ikoyi turning lagos</span> </p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-6 col-sm-6 col-lg-6 describe-block"> 
+		<img src="./images/wedding.jpg">
+	</div>
+	<div class="col-xs-6 col-sm-6 col-lg-6 describe-block"> 
+		<p style="font-size: 3em;color: white">Standard <br>A standard swimming pool</p>
+	</div>
+</div>
+
+<h2 class="text-center" style="color: white">Detailed Center Info</h2>
+<div>          
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Center Name</th>
+        <th>Address</th>
+        <th>Type</th>
+        <th>Capacity</th>
+        <th>Owner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rogaros</td>
+        <td>17, Ikoyi Turning,VGC</td>
+        <td>Reception Hall</td>
+        <td>7000</td>
+        <td>Efosa Okpugie</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="text-center"><button class="btn btn-default booked" data-toggle="modal" data-target="#myModal">See booked dates</button></div>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="text-center">Booked dates</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table class="table table-hover">
+    <tbody>
+      <tr>
+        <td class="text-center">17 Dec 2017</td>
+      </tr>
+      <tr>
+        <td class="text-center">4 Jan 2018</td>
+      </tr>
+      <tr>
+        <td class="text-center">25 Jan 2018</td>
+      </tr>
+      <tr>
+        <td class="text-center">30 March 2018</td>
+      </tr>
+      <tr>
+        <td class="text-center">5th April 2018</td>
+      </tr>
+      <tr>
+        <td class="text-center">20th April 2018</td>
+      </tr>
+    </tbody>
+  </table>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+<div class="footer">
+
+	<div class="copyright-text"><p class="text-center">All rights reserved &copy; Events-manager 2017.</p></div>
+
+</div>
+</html>
