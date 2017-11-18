@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster Two">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./scss/dashboard.css">
+    
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+<style type="text/css">
+	label {
+		margin-left: 15%;
+	}
+</style>
+<div class="container-fluid">
+<div id="flipkart-navbar">
+    <div class="container">
+        <div class="row row1">
+            <ul class="largenav pull-right">
+                <li class="upper-links"><a class="links" href="#" style="color: white">Efosa okpugie <span style="font-size: 50px;color: green">.</span></a></li>
+                <li class="upper-links"><a class="links" href="./dashboard.html" style="color: skyblue">home</a></li>
+                <li class="upper-links"><a class="links" href="./addevent.html" style="color: skyblue">Add Events</a></li>
+                <li class="upper-links"><a class="links" href="./addcenter.html" style="color: skyblue">Add Centers</a></li>
+                <li class="upper-links"><a class="links" href="../index.html" style="color: skyblue">Log Out</a></li>
+            </ul>
+        </div>
+
+        <div class="row row2">
+            <div class="col-sm-2">
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()" style="color: pink">☰ Events Manager</span></h2>
+                <h1 style="margin:0px;"><span class="largenav brand" style="color: pink;font-size: 1.2em">Events~manager</span></h1>
+            </div>
+            <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
+                <div class="row">
+                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Discover Event Centers" name="" style="font-family: 'Lobster Two', serif;">
+                    <button class="btn flipkart-navbar-button col-xs-1 searchbtn">
+                        <i class='fa fa-search'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="mySidenav" class="sidenav">
+    <div class="container" style="background-color: pink; padding-top: 10px;">
+        <span class="sidenav-heading">Sign in</span>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    </div>
+    <a href="./dashboard.html" class="sidenav-links">Home</a>
+    <a href="./addcenter.html" class="sidenav-links"> Add Center</a>
+    <a href="./addevent.html" class="sidenav-links"> Add Event</a>
+    <a href="./signup.html" class="sidenav-links">See Your Events</a>
+    <a href="../index.html" class="sidenav-links">Logout</a>
+</div>
+	<div class="add-event-form">
+	<div class="container signup-padder">
+   <div class="sign-in-container" style="height: 830px">
+   <div class="form-header">
+   	  <p class="text-center header-form" style="margin-top: 3%;font-size: 1.5em">Modify center</p>
+   </div>
+   <form class="form form-group">
+      <label>Name of Center:</label>
+   	  <input type="text" name="nameofevent" placeholder="Name of Center" class="form-control center-name" value="Rogaros">
+   	  <br>
+   	  <label>Type of Center:</label>
+   	  <select class="form-control">
+   	  	<option>Conference Hall</option>
+   	  	<option>Wedding Reception Hall</option>
+   	  	<option>Religious Worship Hall</option>
+   	  	<option>Office Space</option>
+   	  </select>
+   	  <br>
+   	  <label>Capacity:</label>
+   	  <select class="form-control">
+   	  	<option>5000</option>
+   	  	<option>1000</option>
+   	  	<option>2000</option>
+   	  	<option>3000</option>
+   	  	<option>4000</option>
+   	  	<option>5000</option>
+   	  	<option>6000</option>
+   	  	<option>7000</option>
+   	  </select>
+   	  <br>
+   	  <label>Location:</label>
+   	  <select class="form-control">
+   	  	<option>Abuja</option>
+   	  	<option>Lagos</option>
+   	  	<option>Abuja</option>
+   	  	<option>Kano</option>
+   	  	<option>Abeokuta</option>
+   	  	<option>Osogbo</option>
+   	  	<option>Kaduna</option>
+   	  	<option>port-harcourt</option>
+   	  </select>
+   	  <br>
+   	  <label>Address:</label>
+   	  <input type="text" name="address" placeholder="Address" class="form-control center-name" value="28,Bakare Rd,VGC">
+   	  <br>
+   	  <label>Mobile no.</label>
+   	  <input type="text" name="mobile" placeholder="Mobile no." class="form-control center-name" value="0812345678">
+   	  <br>
+   	  <label>Upload Image:</label>
+   	  <input type="file" id="myFile" style="border: none" class="form-control"><button class="btn btn-default form-control" style="background-color: grey">upload</button>
+   	  <br>
+   	  <br>
+   	  	  <div class="text-center"><button class="btn btn-default booked" data-toggle="modal" data-target="#myModal">Add Center</button></div>
+   </form>
+   </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+
+	<div class="copyright-text"><p class="text-center">All rights reserved &copy; Events-manager 2017.</p></div>
+
+</div>
+
+</body>
+<script type="text/javascript">
+	var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+</script>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster Two">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./scss/dashboard.css">
+    
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<div class="container-fluid">
+<div id="flipkart-navbar">
+    <div class="container">
+        <div class="row row1">
+            <ul class="largenav pull-right">
+                <li class="upper-links"><a class="links" href="#" style="color: white">Efosa okpugie <span style="font-size: 50px;color: green">.</span></a></li>
+                <li class="upper-links"><a class="links" href="./templates/signup.html" style="color: skyblue">home</a></li>
+                <li class="upper-links"><a class="links" href="./templates/signup.html" style="color: skyblue">Add Event</a></li>
+                <li class="upper-links"><a class="links" href="./templates/signup.html" style="color: skyblue">Sign Up</a></li>
+                <li class="upper-links"><a class="links" href="./templates/signup.html" style="color: skyblue">Sign In</a></li>
+            </ul>
+        </div>
+
+        <div class="row row2">
+            <div class="col-sm-2">
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()" style="color: pink">☰ Events Manager</span></h2>
+                <h1 style="margin:0px;"><span class="largenav brand" style="color: pink;font-size: 1.2em">Events~manager</span></h1>
+            </div>
+            <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
+                <div class="row">
+                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Discover Event Centers" name="" style="font-family: 'Lobster Two', serif;">
+                    <button class="btn flipkart-navbar-button col-xs-1 searchbtn">
+                        <i class='fa fa-search'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="mySidenav" class="sidenav">
+    <div class="container" style="background-color: pink; padding-top: 10px;">
+        <span class="sidenav-heading">Sign in</span>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    </div>
+    <a href="#" class="sidenav-links">About Us</a>
+    <a href="./templates/signup.html" class="sidenav-links">Add-center</a>
+    <a href="./templates/signup.html" class="sidenav-links">Add-center</a>
+    <a href="./templates/signup.html" class="sidenav-links">Sign In</a>
+    <a href="./templates/signup.html" class="sidenav-links">Sign Up</a>
+</div>
+	<div class="add-event-form">
+	<div class="container signup-padder"> 
+   <div class="sign-in-container">
+   <div class="form-header">
+   	  <p class="text-center header-form" style="margin-top: 3%;font-size: 1.5em">Add an Event</p>
+   </div>
+   <form class="form form-group">
+   	  <input type="text" name="nameofevent" placeholder="Name of Event" class="form-control first-name">
+   	  <br>
+   	  <select class="form-control">
+   	  	<option>Type of event</option>
+   	  	<option>Seminar</option>
+   	  	<option>Wedding</option>
+   	  	<option>Conference</option>
+   	  	<option>Closed door meeting</option>
+   	  	<option>Get together</option>
+   	  </select>
+   	  <br>
+   	   <div class="row mdy">
+   	   <div class='day col-xs-2 col-sm-2 col-lg-2'>
+   	  		<select class="">
+   	  			<option>day</option>
+   	  			<option>01</option>
+   	  			<option>02</option>
+   	  			<option>03</option>
+   	  			<option>04</option>
+   	  		</select>
+   	  	</div>
+   	  	<div class='day col-xs-2 col-sm-2 col-lg-2'>
+   	  		<select class="">
+   	  			<option>month</option>
+   	  			<option>Jan</option>
+   	  			<option>february</option>
+   	  			<option>March</option>
+   	  			<option>April</option>
+   	  			<option>May</option>
+   	  			<option>June</option>
+   	  			<option>July</option>
+   	  			<option>August</option>
+   	  			<option>September</option>
+   	  			<option>October</option>
+   	  			<option>November</option>
+   	  			<option>December</option>
+   	  		</select>
+   	  	</div>
+   	  	<div class='year col-xs-2 col-sm-2 col-lg-2'>
+   	  		<select class="">
+   	  			<option>year</option>
+   	  			<option>2017</option>
+   	  			<option>2018</option>
+   	  			<option>2019</option>
+   	  			<option>2020</option>
+   	  		</select>
+   	  	</div>
+   	  </div>
+   	  <br>
+   	  <select class="form-control">
+   	  	<option>Preferred center</option>
+   	  	<option>Rogaros receptions,philadelphia</option>
+   	  	<option>Rogaros receptions,philadelphia</option>
+   	  	<option>Rogaros receptions,philadelphia</option>
+   	  	<option>Rogaros receptions,philadelphia</option>
+   	  	<option>Rogaros receptions,philadelphia</option>
+   	  </select>
+   	  <br>
+   	  	  <div class="text-center"><button class="btn btn-default booked" data-toggle="modal" data-target="#myModal">Add Event</button></div>
+   	  	  <div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="text-center">Booked dates and Events</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table class="table table-hover">
+    <tbody>
+    <thead>
+    	<tr>
+    		<td>Event type</td>
+    		<td>Date</td>
+    	</tr>
+    </thead>
+      <tr>
+        <td>Wedding</td>
+        <td>17 Dec 2017</td>
+      </tr>
+      <tr>
+        <td>Wedding</td>
+        <td>4 Jan 2018</td>
+      </tr>
+      <tr>
+        <td>Get together</td>
+        <td>25 Jan 2018</td>
+      </tr>
+      <tr>
+        <td>Get together</td>
+        <td>30 March 2018</td>
+      </tr>
+      <tr>
+        <td>Wedding</td>
+        <td>5th April 2018</td>
+      </tr>
+      <tr>
+        <td>Wedding</td>
+        <td>20th April 2018</td>
+      </tr>
+    </tbody>
+  </table>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+   	  </div>
+   </form>
+   </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+
+	<div class="copyright-text"><p class="text-center">All rights reserved &copy; Events-manager 2017.</p></div>
+
+</div>
+<body>
+
+</body>
+<script type="text/javascript">
+	var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+</script>
+</html>

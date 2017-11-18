@@ -1,0 +1,296 @@
+$background-image: url(../images/signupbackground.jpeg);
+$form-height: 40px;
+
+.form-header {
+	border-color: 1px solid pink;
+    border-bottom: groove;
+    height: form-height;
+    font-family: 'Lobster Two', serif;
+}
+
+body {
+   font-family: 'Lobster Two', serif;
+   background-size: 100% 100%;
+   background: background-image;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.button-container {
+    padding-left: 35%;
+    padding-right: 35%;
+}
+
+.btn-submit:hover {
+	color: pink;
+	background-color: grey;
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	animation-name: animate-button;
+}
+
+.usericon {
+	padding-left: 26%;
+	padding-right: 26%;
+}
+.animate-switch {
+   animation-name: animate-form-container;
+   animation-iteration-count: 1;
+   animation-duration: 2s;
+}
+
+.hide-form {
+   animation-name: opaque-form;
+   animation-iteration-count: 1;
+   animation-duration: 2s;
+}
+
+@keyframes opaque-form {
+    10% {display: none}
+    100% {display: none}
+}
+
+@keyframes animate-button {
+	25% {border-top: 1px solid skyblue}
+	50% {border-top: 3px solid skyblue}
+	75% {border-top: 5px solid skyblue}
+	100% {border-top:6px solid skyblue}
+}
+
+@keyframes animate-form-container {
+	50% {height: 50px;}
+	100% {height: 500px;}
+}
+
+.first-name {
+	margin-top: 4%;
+}
+
+.form {
+	font-family: 'Lobster Two', serif;
+}
+
+.form-control {
+	width: 240px;
+	margin-left: 50px;
+	border-bottom: 1px solid skyblue;
+	font-family: 'Lobster Two', serif;
+	font-size: 1.2em;
+}
+
+.sign-in-container {
+	height: 500px;
+	border-color: 1px solid pink;
+	border-style: ridge;
+	width: 350px;
+	margin-top: 5%;
+	background-color: white;
+}
+
+#flipkart-navbar {
+    color: grey;
+    border-bottom: 2px solid pink;
+}
+
+.signup-padder {
+	padding-left: 10%;
+	padding-right: 20%;
+}
+
+.row1{
+    padding-top: 10px;
+    margin-left: 55%;
+}
+
+.searchbtn {
+	width: 40px;
+	height: 20px;
+	color: pink;
+}
+
+.sidenav-heading {
+	font-size: 10px;
+}
+
+.sidenav-links {
+	font-size:1.3em;
+
+}
+
+.row2 {
+	padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.flipkart-navbar-input {
+    padding: 11px 16px;
+    border-radius: 2px 0 0 2px;
+    border: 1px solid pink;
+    outline: 0 none;
+    font-size: 15px;
+    width: 75%;
+    margin-left: 12%;
+}
+
+.flipkart-navbar-button {
+    border: 2px solid pink;
+    border-radius: 0 2px 2px 0;
+    color: pink;
+    padding: 10px 0;
+    height: 50px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.item-number {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, .1);
+    height: 20px;
+    padding: 3px 6px;
+    font-weight: 500;
+    display: inline-block;
+    color: #fff;
+    line-height: 12px;
+    margin-left: 10px;
+}
+
+.upper-links {
+    display: inline-block;
+    padding: 0 11px;
+    line-height: 23px;
+    letter-spacing: 0;
+    color: grey;
+    border: none;
+    outline: none;
+    font-size: 12px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.dropdown:hover {
+    background-color: #fff;
+}
+
+.dropdown:hover .links {
+    color: #000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    display: none;
+    background-color: #fff;
+    color: #333;
+    left: 0px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 4px 8px -3px #555454;
+    margin: 0;
+    padding: 0px;
+}
+
+.links {
+    color: grey;
+    text-decoration: none;
+}
+
+.links:hover {
+    color: pink;
+    text-decoration: none;
+}
+
+.profile-links {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 1px solid #e9e9e9;
+    box-sizing: border-box;
+    display: block;
+    padding: 0 11px;
+    line-height: 23px;
+}
+
+.profile-li{
+    padding-top: 2px;
+}
+
+.brand {
+	margin-left: -30%;
+}
+.largenav {
+    display: none;
+}
+
+.smallnav{
+    display: block;
+}
+
+.smallsearch{
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.menu{
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .largenav {
+        display: block;
+    }
+    .smallnav{
+        display: none;
+    }
+    .smallsearch{
+        margin: 0px;
+    }
+}
+
+/*Sidenav*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0 4px 8px -3px #555454;
+    padding-top: 0px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #fff;        
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav a {font-size: 18px;}
+}
+
+.sidenav-heading{
+    font-size: 36px;
+    color: #fff;
+}
