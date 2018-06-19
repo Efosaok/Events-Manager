@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import expect from 'expect';
 import eventMockData from '../__mocks__/eventMockData';
 import instance from '../../utils/axios';
-import { cancelUserEvent, clearError } from '../../actions/eventActions';
+import { deleteEvent, promptDelete } from '../../actions/eventActions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -13,66 +13,68 @@ describe('async event related actions', () => {
   beforeEach(() => moxios.install(instance));
   afterEach(() => moxios.uninstall());
 
-  describe('tests for cancel event action', () => {
-    it('creates CANCELLING_USER_EVENT and CANCEL_USER_EVENT_RESOLVED upon succesful event cancellation', async (done) => {
+  describe('tests for delete event action', () => {
+    it(`creates DELETING_EVENT and DELETING_EVENT_RESOLVED
+    upon succesful event deletion`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
           status: 200,
-          response: { message: 'you have successfully cancelled the event' }
+          response: { message: 'you have successfully deleted this event' }
         });
       });
       const returnedActions = [
         {
-          type: 'CANCELLING_USER_EVENT',
+          type: 'DELETING_EVENT',
         },
         {
-          type: 'CANCEL_USER_EVENT_RESOLVED',
+          type: 'DELETE_EVENT_RESOLVED',
           payload: {
-            message: 'you have successfully cancelled the event',
+            message: 'you have successfully deleted this event',
           },
           eventId: '12345',
         },
       ];
       const store = mockStore({});
-      await store.dispatch(cancelUserEvent('12345'));
+      await store.dispatch(deleteEvent('12345'));
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });
 
-    it('creates CANCELLING_USER_EVENT and CANCEL_USER_EVENT_REJECTED upon unsuccesful event cancellation', async (done) => {
+    it(`creates DELETING_EVENT and DELETE_EVENT_REJECTED
+    upon unsuccesful event creation`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
-          status: 403,
+          status: 404,
           response: eventMockData.genericErrorResponse
         });
       });
       const returnedActions = [
         {
-          type: 'CANCELLING_USER_EVENT',
+          type: 'DELETING_EVENT',
         },
         {
-          type: 'CANCEL_USER_EVENT_REJECTED',
+          type: 'DELETE_EVENT_REJECTED',
           payload: {
             ...eventMockData.genericErrorResponse,
           }
         },
       ];
       const store = mockStore({});
-      await store.dispatch(cancelUserEvent('123'));
+      await store.dispatch(deleteEvent('1234567'));
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });
 
-    it('creates CLEAR_ERROR when clearing event based errors', async (done) => {
+    it('creates DELETE_EVENT_PROMPT upon delete event prompt', async (done) => {
       const returnedActions = [
         {
-          type: 'CLEAR_ERROR',
+          type: 'DELETE_EVENT_PROMPT',
         },
       ];
       const store = mockStore({});
-      await store.dispatch(clearError());
+      await store.dispatch(promptDelete('1234567'));
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });

@@ -1,5 +1,9 @@
 import validator from 'validator';
-
+/**
+ *
+ * @param {req} req object to be validated
+ * @returns {any} array or boolean
+ */
 const signinValidator = (req) => {
   const errorMessage = [];
   if (!req.email) {

@@ -1,14 +1,14 @@
 import validator from 'validator';
-
+/**
+ *
+ * @param {req} req object to be validated
+ * @returns {any} array or boolean
+ */
 const checkInvalidModifyEventDetails = (req) => {
   const errorMessage = [];
   const modifiedParams = [];
   const {
-    name,
-    type,
-    center,
-    startDate,
-    endDate,
+    name, type, center, startDate, endDate
   } = req;
   [name, type, center, startDate, endDate].forEach((input) => {
     if (input) {
@@ -16,7 +16,7 @@ const checkInvalidModifyEventDetails = (req) => {
     }
   });
   if (!startDate || !endDate) {
-    errorMessage.push('Please specify both the start and end dates of the event');
+    errorMessage.push('Please specify both the start and end dates of the event'); // eslint-disable-line
   }
   if (name) {
     if (name.trim() === '') {
@@ -35,7 +35,12 @@ const checkInvalidModifyEventDetails = (req) => {
     }
   }
   if (startDate) {
-    if (startDate.trim() !== '' && validator.isBefore(startDate) && new Date(startDate).toISOString().slice(0, 10) !== new Date().toISOString().slice(0, 10)) {
+    if (
+      startDate.trim() !== '' &&
+      validator.isBefore(startDate) &&
+      new Date(startDate).toISOString().slice(0, 10) !==
+        new Date().toISOString().slice(0, 10)
+    ) {
       errorMessage.push('The commencement date chosen is past, please choose another date');
     }
     if (validator.toDate(startDate) === null) {
@@ -43,7 +48,12 @@ const checkInvalidModifyEventDetails = (req) => {
     }
   }
   if (endDate) {
-    if (endDate.trim() !== '' && validator.isBefore(endDate) && new Date(endDate).toISOString().slice(0, 10) !== new Date().toISOString().slice(0, 10)) {
+    if (
+      endDate.trim() !== '' &&
+      validator.isBefore(endDate) &&
+      new Date(endDate).toISOString().slice(0, 10) !==
+        new Date().toISOString().slice(0, 10)
+    ) {
       errorMessage.push('The end date chosen is past, please choose another date');
     }
     if (validator.toDate(endDate) === null) {

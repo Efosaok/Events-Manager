@@ -19,13 +19,18 @@ describe('Navbar component test-suite', () => {
   it('mounts the unauthenticated nav links', () => {
     expect(wrapper.find('.signin-nav').exists()).toBeTruthy();
   });
-  it('mounts authenticatedPart of the component if user is authenticated', () => {
-    localStorage.setItem('x-access-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZjcyMDRlOC0zNDAyLTQzN2QtYTZmZi04OGNlMGJmNGUzYzgiLCJyb2xlIjoiU3VwZXJBZG1pbiIsImlhdCI6MTUyODk4NjAzNiwiZXhwIjoxNTI5MzQ2MDM2fQ.2PDYoQQiMH3HJFxFNpMRwHlIMgvU7mvgJdyJvjhVX3Q');
+  it(`mounts authenticatedPart of the component
+  if user is authenticated`, () => {
+    localStorage.setItem(
+      'x-access-token',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZjcyMDRlOC0zNDAyLTQzN2QtYTZmZi04OGNlMGJmNGUzYzgiLCJyb2xlIjoiU3VwZXJBZG1pbiIsImlhdCI6MTUyODk4NjAzNiwiZXhwIjoxNTI5MzQ2MDM2fQ.2PDYoQQiMH3HJFxFNpMRwHlIMgvU7mvgJdyJvjhVX3Q' // eslint-disable-line
+    );
     const secondWrapper = mount(<Navbar {...props} />);
     expect(secondWrapper.find('.btn-logout'));
   });
   it('gets search data from input field user types on it', () => {
-    wrapper.find('.search-lg').simulate('change', { target: { name: 'name', value: 'Ne' } });
+    wrapper.find('.search-lg')
+      .simulate('change', { target: { name: 'name', value: 'Ne' } });
     expect(wrapper.state().name).toEqual('Ne');
   });
   it('redirects user to search page if the search button is clicked', () => {
@@ -46,7 +51,10 @@ describe('Navbar component test-suite', () => {
         }
       },
     });
-    localStorage.setItem('x-access-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZjcyMDRlOC0zNDAyLTQzN2QtYTZmZi04OGNlMGJmNGUzYzgiLCJyb2xlIjoiU3VwZXJBZG1pbiIsImlhdCI6MTUyODk4NjAzNiwiZXhwIjoxNTI5MzQ2MDM2fQ.2PDYoQQiMH3HJFxFNpMRwHlIMgvU7mvgJdyJvjhVX3Q');
+    localStorage.setItem(
+      'x-access-token',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZjcyMDRlOC0zNDAyLTQzN2QtYTZmZi04OGNlMGJmNGUzYzgiLCJyb2xlIjoiU3VwZXJBZG1pbiIsImlhdCI6MTUyODk4NjAzNiwiZXhwIjoxNTI5MzQ2MDM2fQ.2PDYoQQiMH3HJFxFNpMRwHlIMgvU7mvgJdyJvjhVX3Q' // eslint-disable-line
+    );
     wrapper.find('.btn-logout-lg').simulate('click');
     expect(global.historyPath).toEqual('/signin');
   });

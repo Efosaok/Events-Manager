@@ -70,7 +70,8 @@ describe('async authentication related actions', () => {
   });
 
   describe('tests for async user sign up', () => {
-    it('creates CREATE_USER and CREATE_USER_RESOLVED upon creating a User', async (done) => {
+    it(`creates CREATE_USER and CREATE_USER_RESOLVED
+    upon creating a User`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({

@@ -83,7 +83,8 @@ export class Navbar extends Component {
     return (
       <div>
         <nav
-          className="navbar navbar-toggleable-md fixed-top bg-faded animated slideInDown"
+          className="navbar navbar-toggleable-md
+          fixed-top bg-faded animated slideInDown"
           style={{ color: 'black', background: 'white', zIndex: '2' }}
         >
           <div
@@ -142,7 +143,9 @@ export class Navbar extends Component {
             </span>
           </a>
 
-          <div className="navbar-collapse d-none d-lg-block nav justify-content-center">
+          <div className="navbar-collapse d-none
+            d-lg-block nav justify-content-center"
+          >
             <ul className="nav d-flex justify-content-center">
               <form
                 className="form-inline my-4 my-lg-0 large-search"
@@ -173,7 +176,9 @@ export class Navbar extends Component {
               </form>
             </ul>
           </div>
-          <div className="navbar-collapse d-none d-lg-block nav justify-content-end">
+          <div className="navbar-collapse d-none d-lg-block
+            nav justify-content-end"
+          >
             <ul className="nav d-flex justify-content-center">
               {!authenticated && (
                 <li className="nav-item">

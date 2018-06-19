@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import expect from 'expect';
 import eventMockData from '../__mocks__/eventMockData';
 import instance from '../../utils/axios';
-import { deleteEvent, promptDelete } from '../../actions/eventActions';
+import { fetchEvents } from '../../actions/eventActions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -13,66 +13,65 @@ describe('async event related actions', () => {
   beforeEach(() => moxios.install(instance));
   afterEach(() => moxios.uninstall());
 
-  describe('tests for delete event action', () => {
-    it('creates DELETING_EVENT and DELETING_EVENT_RESOLVED upon succesful event deletion', async (done) => {
+  describe('tests for fetch events action', () => {
+    it(`creates FETCH_EVENTS and FETCH_EVENTS_RESOLVED
+    upon succesful event data fetch`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
-          status: 200,
-          response: { message: 'you have successfully deleted this event' }
+          status: 201,
+          response: {
+            userEvents: [eventMockData.oneEvent],
+            message: 'you have successfully fetched events'
+          }
         });
       });
       const returnedActions = [
         {
-          type: 'DELETING_EVENT',
+          type: 'FETCH_EVENTS',
         },
         {
-          type: 'DELETE_EVENT_RESOLVED',
+          type: 'FETCH_EVENTS_RESOLVED',
           payload: {
-            message: 'you have successfully deleted this event',
-          },
-          eventId: '12345',
+            message: 'you have successfully fetched events',
+            userEvents: [eventMockData.oneEvent],
+          }
         },
       ];
+      const eventDetails = {
+        ...eventMockData.oneEvent,
+      };
       const store = mockStore({});
-      await store.dispatch(deleteEvent('12345'));
+      await store.dispatch(fetchEvents(eventDetails));
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });
 
-    it('creates DELETING_EVENT and DELETE_EVENT_REJECTED upon unsuccesful event creation', async (done) => {
+    it(`creates FETCH_EVENTS and FETCH_EVENTS_REJECTED
+    upon succesful events data fetch`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
-          status: 404,
+          status: 400,
           response: eventMockData.genericErrorResponse
         });
       });
       const returnedActions = [
         {
-          type: 'DELETING_EVENT',
+          type: 'FETCH_EVENTS',
         },
         {
-          type: 'DELETE_EVENT_REJECTED',
+          type: 'FETCH_EVENTS_REJECTED',
           payload: {
             ...eventMockData.genericErrorResponse,
           }
         },
       ];
+      const eventDetails = {
+        ...eventMockData.oneEvent,
+      };
       const store = mockStore({});
-      await store.dispatch(deleteEvent('1234567'));
-      expect(store.getActions()).toEqual(returnedActions);
-      done();
-    });
-
-    it('creates DELETE_EVENT_PROMPT upon delete event prompt', async (done) => {
-      const returnedActions = [
-        {
-          type: 'DELETE_EVENT_PROMPT',
-        },
-      ];
-      const store = mockStore({});
-      await store.dispatch(promptDelete('1234567'));
+      await store.dispatch(fetchEvents(eventDetails));
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });

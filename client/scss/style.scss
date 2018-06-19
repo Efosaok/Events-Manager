@@ -828,7 +828,6 @@ video {
 .acenter {
   margin-top: 15px;
   padding-left: 50px;
-  padding-right: 50px;
 }
 .catalogs {
   padding-left: 60px;
@@ -909,9 +908,9 @@ video {
 }
 
 .upcoming-events-section {
-  padding-left: 25px;
+  padding-left: 60px;
   padding-right: 25px;
-  width: 95%;
+  width: 100%;
 }
 
 .left-right-btns {
@@ -1000,7 +999,7 @@ input:checked + .slider:before {
 }
 
 .card {
-  width: 415px;
+  width: 100%;
   border-radius: 0px;
 }
 

@@ -38,12 +38,16 @@ describe('Add event page test suite', () => {
   });
 
   it('saves data to state when user types on an input field', () => {
-    wrapper.find('.name').simulate('change', { target: { name: 'name', value: 'My Birthday' } });
+    wrapper.find('.name').simulate('change', {
+      target: { name: 'name', value: 'My Birthday' }
+    });
     expect(wrapper.state().name).toEqual('My Birthday');
   });
 
   it('makes a prompt visible when input validation occurs', () => {
-    wrapper.find('.type').simulate('change', { target: { name: 'type', value: 'Birthday' } });
+    wrapper.find('.type').simulate('change', {
+      target: { name: 'type', value: 'Birthday' }
+    });
     wrapper.find('.btn-submit').simulate('click');
     expect(wrapper.props().actionRejectedPrompter).toHaveBeenCalledWith([
       'center is required',
@@ -54,9 +58,15 @@ describe('Add event page test suite', () => {
   });
 
   it('creates an event and redirects to the userevents page', () => {
-    wrapper.find('.startDate').simulate('change', { target: { name: 'startDate', value: '08/08/2018' } });
-    wrapper.find('.endDate').simulate('change', { target: { name: 'endDate', value: '08/08/2018' } });
-    wrapper.find('.center').simulate('change', { target: { name: 'center', value: '123' } });
+    wrapper.find('.startDate').simulate('change', {
+      target: { name: 'startDate', value: '08/08/2018' }
+    });
+    wrapper.find('.endDate').simulate('change', {
+      target: { name: 'endDate', value: '08/08/2018' }
+    });
+    wrapper.find('.center').simulate('change', {
+      target: { name: 'center', value: '123' }
+    });
     wrapper.find('.btn-submit').simulate('click');
     wrapper.setProps({
       center: {

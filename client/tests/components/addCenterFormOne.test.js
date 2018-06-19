@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import expect from 'expect';
-import { AddCenterFormOne } from '../../components/centers/container/AddCenterFormOne';
+import { AddCenterFormOne }
+  from '../../components/centers/container/AddCenterFormOne';
 
 let props = {
   center: {},
@@ -26,7 +27,8 @@ describe('Add center form one component test suite', () => {
     ]);
   });
 
-  it('saves validated data and redirects to the next form after successfull validation', () => {
+  it(`saves validated data and redirects to the
+  next form after successfull validation`, () => {
     wrapper
       .find('.c-name')
       .simulate('change', { target: { value: 'Nice Center', name: 'name' } });
@@ -53,7 +55,8 @@ describe('Add center form one component test suite', () => {
     expect(global.historyPath).toEqual('/addcentertwo');
   });
 
-  it('prefills the values if returning from another add center form component', () => {
+  it(`prefills the values if returning from
+  another add center form component`, () => {
     props = {
       center: {
         primaryCenterDetails: {

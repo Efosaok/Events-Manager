@@ -6,8 +6,11 @@ let alternateInitialState;
 
 describe('tests for event reducers', () => {
   describe('add event reducers', () => {
-    it('sets status key adding and creatingEvent to true on ADD_EVENT action type', () => {
-      expect(eventReducers(eventInitialState(), { type: 'ADD_EVENT' })).toEqual({
+    it(`sets status key adding and creatingEvent to true
+    on ADD_EVENT action type`, () => {
+      expect(eventReducers(eventInitialState(), {
+        type: 'ADD_EVENT'
+      })).toEqual({
         ...eventInitialState(),
         status: {
           ...eventInitialState().status,
@@ -16,7 +19,8 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets status key error to false on ADD_EVENT_REJECTED action type', () => {
+    it(`sets status key error to false on
+    ADD_EVENT_REJECTED action type`, () => {
       expect(eventReducers(eventInitialState(), {
         type: 'ADD_EVENT_REJECTED',
         payload: { error: 'oops, an error occured' }
@@ -30,8 +34,11 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets status key added to true on ADD_EVENT_RESOLVED action type', () => {
-      expect(eventReducers(eventInitialState(), { type: 'ADD_EVENT_RESOLVED' })).toEqual({
+    it(`sets status key added to true on
+    ADD_EVENT_RESOLVED action type`, () => {
+      expect(eventReducers(eventInitialState(), {
+        type: 'ADD_EVENT_RESOLVED'
+      })).toEqual({
         ...eventInitialState(),
         status: {
           ...eventInitialState().status,
@@ -43,8 +50,11 @@ describe('tests for event reducers', () => {
   });
 
   describe('fetch events reducers', () => {
-    it('sets status key fetchingEvents to true on FETCH_EVENTS action type', () => {
-      expect(eventReducers(eventInitialState(), { type: 'FETCH_EVENTS' })).toEqual({
+    it(`sets status key fetchingEvents to true on
+    FETCH_EVENTS action type`, () => {
+      expect(eventReducers(eventInitialState(), {
+        type: 'FETCH_EVENTS'
+      })).toEqual({
         ...eventInitialState(),
         status: {
           ...eventInitialState().status,
@@ -52,8 +62,11 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets status key error to true on FETCH_EVENTS_REJECTED action type', () => {
-      expect(eventReducers(eventInitialState(), { type: 'FETCH_EVENTS_REJECTED' })).toEqual({
+    it(`sets status key error to true on
+    FETCH_EVENTS_REJECTED action type`, () => {
+      expect(eventReducers(eventInitialState(), {
+        type: 'FETCH_EVENTS_REJECTED'
+      })).toEqual({
         ...eventInitialState(),
         status: {
           ...eventInitialState().status,
@@ -62,7 +75,8 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets key events to events array on FETCH_EVENTS_RESOLVED action type', () => {
+    it(`sets key events to events array on
+    FETCH_EVENTS_RESOLVED action type`, () => {
       expect(eventReducers(eventInitialState(), {
         type: 'FETCH_EVENTS_RESOLVED',
         payload: {
@@ -102,8 +116,11 @@ describe('tests for event reducers', () => {
   });
 
   describe('delete event reducers', () => {
-    it('sets status key deleteEventPrompted to true on DELETE_EVENT_PROMPT action type', () => {
-      expect(eventReducers(alternateInitialState, { type: 'DELETE_EVENT_PROMPT' })).toEqual({
+    it(`sets status key deleteEventPrompted to true
+    on DELETE_EVENT_PROMPT action type`, () => {
+      expect(eventReducers(alternateInitialState, {
+        type: 'DELETE_EVENT_PROMPT'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -111,8 +128,11 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets status key error to true on DELETE_EVENT_REJECTED action type', () => {
-      expect(eventReducers(alternateInitialState, { type: 'DELETE_EVENT_REJECTED' })).toEqual({
+    it(`sets status key error to true on
+    DELETE_EVENT_REJECTED action type`, () => {
+      expect(eventReducers(alternateInitialState, {
+        type: 'DELETE_EVENT_REJECTED'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -120,8 +140,11 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets filters true user events array on DELETE_EVENT_RESOLVED action type', () => {
-      expect(eventReducers(alternateInitialState, { type: 'DELETE_EVENT_RESOLVED', eventId: 1 })).toEqual({
+    it(`sets filters true user events array on
+    DELETE_EVENT_RESOLVED action type`, () => {
+      expect(eventReducers(alternateInitialState, {
+        type: 'DELETE_EVENT_RESOLVED', eventId: 1
+      })).toEqual({
         ...alternateInitialState,
         events: {
           userEvents: [],
@@ -135,8 +158,11 @@ describe('tests for event reducers', () => {
   });
 
   describe('modify events reducers', () => {
-    it('sets status key modifyEventPrompted to true and eventObject key to event to be modified on MODIFY_EVENT_PROMPT action type', () => {
-      expect(eventReducers(alternateInitialState, { type: 'MODIFY_EVENT_PROMPT', eventId: 1 })).toEqual({
+    it(`sets status key modifyEventPrompted to true and eventObject 
+  key to event to be modified on MODIFY_EVENT_PROMPT action type`, () => {
+      expect(eventReducers(alternateInitialState, {
+        type: 'MODIFY_EVENT_PROMPT', eventId: 1
+      })).toEqual({
         ...alternateInitialState,
         eventObject: [{
           id: 1,
@@ -150,8 +176,11 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets status key modifyingEvent to true on MODIFY_EVENT_PROMPT action type', () => {
-      expect(eventReducers(alternateInitialState, { type: 'MODIFYING_EVENT' })).toEqual({
+    it(`sets status key modifyingEvent to true on
+    MODIFY_EVENT_PROMPT action type`, () => {
+      expect(eventReducers(alternateInitialState, {
+        type: 'MODIFYING_EVENT'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -159,7 +188,8 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets status key error to true on MODIFY_EVENT_REJECTED action type', () => {
+    it(`sets status key error to true on
+    MODIFY_EVENT_REJECTED action type`, () => {
       expect(eventReducers(alternateInitialState, {
         type: 'MODIFY_EVENT_REJECTED',
         payload: {
@@ -175,7 +205,8 @@ describe('tests for event reducers', () => {
         }
       });
     });
-    it('sets status key eventisModified to true on MODIFY_EVENT_RESOLVED action type', () => {
+    it(`sets status key eventisModified to true on
+    MODIFY_EVENT_RESOLVED action type`, () => {
       expect(eventReducers(alternateInitialState, {
         type: 'MODIFY_EVENT_RESOLVED',
       })).toEqual({
@@ -191,10 +222,14 @@ describe('tests for event reducers', () => {
 
   describe('clear reducers', () => {
     it('should clear state on USER_LOGOUT', () => {
-      expect(eventReducers(eventInitialState(), { type: 'USER_LOGOUT' })).toEqual(eventInitialState());
+      expect(eventReducers(eventInitialState(), {
+        type: 'USER_LOGOUT'
+      })).toEqual(eventInitialState());
     });
     it('should reset status keys to false on CLEAR_ERROR action type', () => {
-      expect(eventReducers(eventInitialState(), { type: 'CLEAR_ERROR' })).toEqual({
+      expect(eventReducers(eventInitialState(), {
+        type: 'CLEAR_ERROR'
+      })).toEqual({
         ...eventInitialState(),
         status: {
           ...eventInitialState().status,
@@ -205,7 +240,9 @@ describe('tests for event reducers', () => {
       });
     });
     it('should return passed state on unhandled action type', () => {
-      expect(eventReducers(alternateInitialState, { type: 'NULL' })).toEqual(alternateInitialState);
+      expect(eventReducers(alternateInitialState, {
+        type: 'NULL'
+      })).toEqual(alternateInitialState);
     });
   });
 });

@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import expect from 'expect';
 import eventMockData from '../__mocks__/eventMockData';
 import instance from '../../utils/axios';
-import { fetchEvents } from '../../actions/eventActions';
+import { addEvent } from '../../actions/eventActions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -13,37 +13,42 @@ describe('async event related actions', () => {
   beforeEach(() => moxios.install(instance));
   afterEach(() => moxios.uninstall());
 
-  describe('tests for fetch events action', () => {
-    it('creates FETCH_EVENTS and FETCH_EVENTS_RESOLVED upon succesful event data fetch', async (done) => {
+  describe('tests for async add event action', () => {
+    it(`creates ADD_EVENT and ADD_EVENT_RESOLVED
+    upon succesful event creation`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
           status: 201,
-          response: { userEvents: [eventMockData.oneEvent], message: 'you have successfully fetched events' }
+          response: {
+            ...eventMockData.oneEvent,
+            message: 'you have successfully added an event'
+          }
         });
       });
       const returnedActions = [
         {
-          type: 'FETCH_EVENTS',
+          type: 'ADD_EVENT'
         },
         {
-          type: 'FETCH_EVENTS_RESOLVED',
+          type: 'ADD_EVENT_RESOLVED',
           payload: {
-            message: 'you have successfully fetched events',
-            userEvents: [eventMockData.oneEvent],
+            message: 'you have successfully added an event',
+            ...eventMockData.oneEvent
           }
-        },
+        }
       ];
       const eventDetails = {
-        ...eventMockData.oneEvent,
+        ...eventMockData.oneEvent
       };
       const store = mockStore({});
-      await store.dispatch(fetchEvents(eventDetails));
+      await store.dispatch(addEvent(eventDetails));
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });
 
-    it('creates FETCH_EVENTS and FETCH_EVENTS_REJECTED upon succesful events data fetch', async (done) => {
+    it(`creates ADD_EVENT and ADD_EVENT_REJECTED
+    upon unsuccesful event creation`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
@@ -53,20 +58,20 @@ describe('async event related actions', () => {
       });
       const returnedActions = [
         {
-          type: 'FETCH_EVENTS',
+          type: 'ADD_EVENT'
         },
         {
-          type: 'FETCH_EVENTS_REJECTED',
+          type: 'ADD_EVENT_REJECTED',
           payload: {
-            ...eventMockData.genericErrorResponse,
+            ...eventMockData.genericErrorResponse
           }
-        },
+        }
       ];
       const eventDetails = {
-        ...eventMockData.oneEvent,
+        ...eventMockData.oneEvent
       };
       const store = mockStore({});
-      await store.dispatch(fetchEvents(eventDetails));
+      await store.dispatch(addEvent(eventDetails));
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });

@@ -29,7 +29,7 @@ export class AddCenterFormTwo extends Component {
     };
     this.getRentalCost = this.getRentalCost.bind(this);
     this.addFacilities = this.addFacilities.bind(this);
-    this.addFacilitiesAndRentalCost = this.addFacilitiesAndRentalCost.bind(this);
+    this.addFacilitiesAndRentalCost = this.addFacilitiesAndRentalCost.bind(this); // eslint-disable-line
   }
   /**
  *

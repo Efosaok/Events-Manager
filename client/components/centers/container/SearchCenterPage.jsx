@@ -89,7 +89,7 @@ export class SearchCenterPage extends Component {
       return this.props.actionRejectedPrompter('search field cannot be empty');
     }
     if (searchQueryType === '') {
-      return this.props.actionRejectedPrompter('Please select the type of search');
+      return this.props.actionRejectedPrompter('Please select type of search');
     }
     this.props.getAllCenters({ [searchQueryType]: searchQueryValue });
   }

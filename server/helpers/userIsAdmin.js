@@ -14,7 +14,9 @@ const userIsAdmin = (req, res, next) =>
     Users.findById(req.decoded.userId)
       .then((user) => {
         if (user.role === 'User') {
-          return res.status(403).send({ error: 'You are not authorized to perform this action' });
+          return res.status(403).send({
+            error: 'You are not authorized to perform this action'
+          });
         }
         next();
       })

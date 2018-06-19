@@ -1,4 +1,4 @@
-const initialState = () => {
+const centerInitialState = () => {
   const state = {
     allCenters: {
       message: '',
@@ -65,4 +65,4 @@ const initialState = () => {
   return state;
 };
 
-export default initialState;
+export default centerInitialState;

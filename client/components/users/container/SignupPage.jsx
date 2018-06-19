@@ -49,7 +49,7 @@ export class SignupPage extends Component {
    *
    * runs on re-render
    * @param {any} nextProps
-   * @returns {function} browserhistory function that redirects to another component
+   * @returns {function} browserhistory push method
    * @memberof SignupBody
    */
   componentWillReceiveProps(nextProps) {
@@ -107,7 +107,10 @@ export class SignupPage extends Component {
       <div>
         <div className="signup-page">
           <div className="form-section container">
-            <form className="form form-group form-container sign-in-container container">
+            <form
+              className="form form-group
+              form-container sign-in-container container"
+            >
               <div className="form-header" style={{ paddingBottom: `${10}px` }}>
                 <p
                   className="text-center header-form"

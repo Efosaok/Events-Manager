@@ -9,11 +9,7 @@ import validator from 'validator';
 const checkInvalidAddEventDetails = (req, res, next) => {
   const errorMessage = [];
   const {
-    name,
-    type,
-    center,
-    startDate,
-    endDate,
+    name, type, center, startDate, endDate
   } = req.body;
   const eventDetails = [name, type, center, startDate, endDate];
   const matchingDetails = {
@@ -21,7 +17,7 @@ const checkInvalidAddEventDetails = (req, res, next) => {
     1: 'type',
     2: 'center',
     3: 'startDate',
-    4: 'endDate',
+    4: 'endDate'
   };
   for (let counter = -1; counter < eventDetails.length - 1;) {
     counter += 1;
@@ -39,34 +35,47 @@ const checkInvalidAddEventDetails = (req, res, next) => {
   }
   if (center) {
     if (!validator.isUUID(center, 4)) {
-      errorMessage.push('invalid center selected');
+      errorMessage
+        .push('invalid center selected');
     }
   }
   if (name) {
     if (name.trim() !== '' && Number.isInteger(parseFloat(name))) {
-      errorMessage.push('name field cannot be digits or alphanumeric characters');
+      errorMessage
+        .push('name field cannot be digits or alphanumeric characters');
     }
   }
   if (type) {
     if (type.trim() !== '' && Number.isInteger(parseFloat(type))) {
-      errorMessage.push('type field cannot be digits or alphanumeric characters');
+      errorMessage
+        .push('type field cannot be digits or alphanumeric characters');
     }
   }
   if (startDate) {
-    if (startDate.trim() !== '' && validator.isBefore(startDate) &&
-    new Date(startDate).toISOString().slice(0, 10) !==
-    new Date().toISOString().slice(0, 10)) {
-      return res.status(406).send({ error: 'The start date chosen is past, please choose another date' });
+    if (
+      startDate.trim() !== '' &&
+      validator.isBefore(startDate) &&
+      new Date(startDate).toISOString().slice(0, 10) !==
+        new Date().toISOString().slice(0, 10)
+    ) {
+      return res.status(406).send({
+        error: 'The start date chosen is past, please choose another date'
+      });
     }
     if (validator.toDate(startDate) === null) {
       errorMessage.push('invalid date');
     }
   }
   if (endDate) {
-    if (endDate.trim() !== '' && validator.isBefore(endDate) &&
+    if (
+      endDate.trim() !== '' &&
+      validator.isBefore(endDate) &&
       new Date(endDate).toISOString().slice(0, 10) !==
-      new Date().toISOString().slice(0, 10)) {
-      return res.status(406).send({ error: 'The end date chosen is past, please choose another date' });
+        new Date().toISOString().slice(0, 10)
+    ) {
+      return res.status(406).send({
+        error: 'The end date chosen is past, please choose another date'
+      });
     }
     if (validator.toDate(endDate) === null) {
       errorMessage.push('invalid date');
@@ -92,11 +101,7 @@ const checkInvalidModifyEventDetails = (req, res, next) => {
   const errorMessage = [];
   const modifiedParams = [];
   const {
-    name,
-    type,
-    center,
-    startDate,
-    endDate,
+    name, type, center, startDate, endDate
   } = req.body;
   [name, type, center, startDate, endDate].forEach((input) => {
     if (input) {
@@ -124,24 +129,35 @@ const checkInvalidModifyEventDetails = (req, res, next) => {
       errorMessage.push('name field cannot be empty');
     }
     if (Number.isInteger(parseFloat(type))) {
-      errorMessage.push('type fields cannot be digits or alphanumeric characters');
+      errorMessage
+        .push('type fields cannot be digits or alphanumeric characters');
     }
   }
   if (startDate) {
-    if (startDate.trim() !== '' && validator.isBefore(startDate) &&
+    if (
+      startDate.trim() !== '' &&
+      validator.isBefore(startDate) &&
       new Date(startDate).toISOString().slice(0, 10) !==
-      new Date().toISOString().slice(0, 10)) {
-      return res.status(406).send({ error: 'The start date chosen is past, please choose another date' });
+        new Date().toISOString().slice(0, 10)
+    ) {
+      return res.status(406).send({
+        error: 'The start date chosen is past, please choose another date'
+      });
     }
     if (validator.toDate(startDate) === null) {
       errorMessage.push('invalid start date');
     }
   }
   if (endDate) {
-    if (endDate.trim() !== '' && validator.isBefore(endDate) &&
-    new Date(endDate).toISOString().slice(0, 10) !==
-    new Date().toISOString().slice(0, 10)) {
-      return res.status(406).send({ error: 'The end date chosen is past, please choose another date' });
+    if (
+      endDate.trim() !== '' &&
+      validator.isBefore(endDate) &&
+      new Date(endDate).toISOString().slice(0, 10) !==
+        new Date().toISOString().slice(0, 10)
+    ) {
+      return res.status(406).send({
+        error: 'The end date chosen is past, please choose another date'
+      });
     }
     if (validator.toDate(startDate) === null) {
       errorMessage.push('invalid end date');
@@ -173,5 +189,5 @@ const checkInvalidEventParams = (req, res, next) => {
 export {
   checkInvalidAddEventDetails,
   checkInvalidModifyEventDetails,
-  checkInvalidEventParams,
+  checkInvalidEventParams
 };

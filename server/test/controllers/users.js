@@ -4,12 +4,11 @@ import app from '../../app';
 import users from '../__mocks__/users';
 import generateToken from '../generateToken';
 
-const authToken = generateToken({ userId: 'df7204e8-3402-437d-a6ff-88ce0bf4e3c8' });
+const authToken = generateToken({
+  userId: 'df7204e8-3402-437d-a6ff-88ce0bf4e3c8'
+});
 const {
-  validData,
-  validSigninData,
-  wrongEmail,
-  wrongPassword
+  validData, validSigninData, wrongEmail, wrongPassword
 } = users;
 describe('user related enpoints test-suites', () => {
   describe('POST /api/v1/users', () => {
@@ -32,7 +31,8 @@ describe('user related enpoints test-suites', () => {
         .expect('Content-Type', /json/)
         .expect(409, done)
         .expect((res) => {
-          expect(res.body.error).toEqual('Another user with this email already exists');
+          expect(res.body.error)
+            .toEqual('Another user with this email already exists');
         });
     });
   });
@@ -46,10 +46,12 @@ describe('user related enpoints test-suites', () => {
         .expect('Content-Type', /json/)
         .expect(200, done)
         .expect((res) => {
-          expect(res.body.message).toEqual('You have successfully logged in');
+          expect(res.body.message)
+            .toEqual('You have successfully logged in');
         });
     });
-    it('sends an error message and status code 400 if password is wrong', (done) => {
+    it(`sends an error message and status code
+    400 if password is wrong`, (done) => {
       request(app)
         .post('/api/v1/users/signin')
         .send(wrongPassword)
@@ -60,7 +62,8 @@ describe('user related enpoints test-suites', () => {
           expect(res.body.error).toEqual('Invalid email or password');
         });
     });
-    it('sends an error message and status code 400 if email is wrong', (done) => {
+    it(`sends an error message and status
+    code 400 if email is wrong`, (done) => {
       request(app)
         .post('/api/v1/users/signin')
         .send(wrongEmail)
@@ -82,7 +85,8 @@ describe('user related enpoints test-suites', () => {
         .expect('Content-Type', /json/)
         .expect(202, done)
         .expect((res) => {
-          expect(res.body.message).toEqual('Ordinary User successfully upgraded');
+          expect(res.body.message)
+            .toEqual('Ordinary User successfully upgraded');
         });
     });
     it('downgrades an admin to user and sends status code 202', (done) => {
@@ -93,7 +97,8 @@ describe('user related enpoints test-suites', () => {
         .expect('Content-Type', /json/)
         .expect(202, done)
         .expect((res) => {
-          expect(res.body.message).toEqual('Admin User successfully downgraded');
+          expect(res.body.message)
+            .toEqual('Admin User successfully downgraded');
         });
     });
   });

@@ -29,8 +29,11 @@ const authenticatedState = {
 
 describe('user reducer', () => {
   describe('signup reducers', () => {
-    it('should set status key fetching to true on CREATE_USER action type', () => {
-      expect(userReducers(unauthenticatedState, { type: 'CREATE_USER' })).toEqual({
+    it(`should set status key fetching to true 
+    on CREATE_USER action type`, () => {
+      expect(userReducers(unauthenticatedState, {
+        type: 'CREATE_USER'
+      })).toEqual({
         ...unauthenticatedState,
         status: {
           ...unauthenticatedState.status,
@@ -38,7 +41,8 @@ describe('user reducer', () => {
         }
       });
     });
-    it('should set status key error to true on CREATE_USER_REJECTED action type', () => {
+    it(`should set status key error to true on
+    CREATE_USER_REJECTED action type`, () => {
       expect(userReducers(
         unauthenticatedState,
         { type: 'CREATE_USER_REJECTED', payload: { error: 'An error occured' } }
@@ -51,7 +55,9 @@ describe('user reducer', () => {
         }
       });
     });
-    it('should set  key token to token in action payload and status key authenticated and fetched to true on CREATE_USER_RESOLVED action type', () => {
+    it(`should set  key token to token in action payload
+    and status key authenticated and fetched to true
+    on CREATE_USER_RESOLVED action type`, () => {
       expect(userReducers(
         unauthenticatedState,
         { type: 'CREATE_USER_RESOLVED', token: 'gufjhrjgrh09887767' }
@@ -68,8 +74,11 @@ describe('user reducer', () => {
   });
 
   describe('signin reducers', () => {
-    it('should set status key fetching to true on LOGIN_USER action type', () => {
-      expect(userReducers(unauthenticatedState, { type: 'LOGIN_USER' })).toEqual({
+    it(`should set status key fetching to true
+    on LOGIN_USER action type`, () => {
+      expect(userReducers(unauthenticatedState, {
+        type: 'LOGIN_USER'
+      })).toEqual({
         ...unauthenticatedState,
         status: {
           ...unauthenticatedState.status,
@@ -77,7 +86,8 @@ describe('user reducer', () => {
         }
       });
     });
-    it('should set status key error to true on LOGIN_REJECTED action type', () => {
+    it(`should set status key error to true
+    on LOGIN_REJECTED action type`, () => {
       expect(userReducers(
         unauthenticatedState,
         { type: 'LOGIN_REJECTED', payload: { error: 'An error occured' } }
@@ -90,7 +100,9 @@ describe('user reducer', () => {
         }
       });
     });
-    it('should set  key token to token in action payload and status key authenticated and fetched to true on LOGIN_RESOLVED action type', () => {
+    it(`should set  key token to token in action
+    payload and status key authenticated and fetched
+    to true on LOGIN_RESOLVED action type`, () => {
       expect(userReducers(
         unauthenticatedState,
         { type: 'LOGIN_RESOLVED', token: 'gufjhrjgrh09887767' }
@@ -107,7 +119,8 @@ describe('user reducer', () => {
   });
 
   describe('fetch users reducers', () => {
-    it('sets status key fetchingAllUsers to true on FETCHING_ALL_USERS action type', () => {
+    it(`sets status key fetchingAllUsers to
+    true on FETCHING_ALL_USERS action type`, () => {
       expect(userReducers(
         authenticatedState,
         { type: 'FETCHING_ALL_USERS' }
@@ -119,7 +132,8 @@ describe('user reducer', () => {
         }
       });
     });
-    it('sets status key fetchingAllUsers and error to false and true respectively on FETCH_ALL_USERS_REJECTED action type', () => {
+    it(`sets status key fetchingAllUsers and error to false and true 
+    espectively on FETCH_ALL_USERS_REJECTED action type`, () => {
       expect(userReducers(
         authenticatedState,
         { type: 'FETCH_ALL_USERS_REJECTED' }
@@ -133,7 +147,8 @@ describe('user reducer', () => {
         }
       });
     });
-    it('sets key allusers to allusers to value in action payload on FETCH_ALL_USERS_RESOLVED action type', () => {
+    it(`sets key allusers to allusers to value in action
+    payload on FETCH_ALL_USERS_RESOLVED action type`, () => {
       expect(userReducers(
         authenticatedState,
         {
@@ -177,7 +192,8 @@ describe('user reducer', () => {
   });
 
   describe('assign users role reducers', () => {
-    it('sets status key assigning to true on ASSIGNING_USER_NEW_ROLE action type', () => {
+    it(`sets status key assigning to true on
+    ASSIGNING_USER_NEW_ROLE action type`, () => {
       expect(userReducers(
         authenticatedState,
         { type: 'ASSIGNING_USER_NEW_ROLE' },
@@ -189,7 +205,8 @@ describe('user reducer', () => {
         }
       });
     });
-    it('sets status key error to true on ASSIGNING_USER_NEW_ROLE_REJECTED action type', () => {
+    it(`sets status key error to true on
+    ASSIGNING_USER_NEW_ROLE_REJECTED action type`, () => {
       expect(userReducers(
         authenticatedState,
         { type: 'ASSIGNING_USER_NEW_ROLE_REJECTED' },
@@ -202,7 +219,8 @@ describe('user reducer', () => {
         }
       });
     });
-    it('toggles role of user object on ASSIGNING_USER_NEW_ROLE_RESOLVED action type', () => {
+    it(`toggles role of user object on
+    ASSIGNING_USER_NEW_ROLE_RESOLVED action type`, () => {
       expect(userReducers(
         authenticatedState,
         { type: 'ASSIGNING_USER_NEW_ROLE_RESOLVED', userId: 1 },
@@ -231,7 +249,8 @@ describe('user reducer', () => {
         }]
       };
     });
-    it('toggles role of user object on ASSIGNING_USER_NEW_ROLE_RESOLVED action type', () => {
+    it(`toggles role of user object on
+    ASSIGNING_USER_NEW_ROLE_RESOLVED action type`, () => {
       expect(userReducers(
         authenticatedState,
         { type: 'ASSIGNING_USER_NEW_ROLE_RESOLVED', userId: 1 },
@@ -261,10 +280,14 @@ describe('user reducer', () => {
       };
     });
     it('should return passed state on USER_LOGOUT', () => {
-      expect(userReducers(unauthenticatedState, { type: 'USER_LOGOUT' })).toEqual(unauthenticatedState);
+      expect(userReducers(unauthenticatedState, {
+        type: 'USER_LOGOUT'
+      })).toEqual(unauthenticatedState);
     });
     it('should clear state on CLEAR_ERROR', () => {
-      expect(userReducers(unauthenticatedState, { type: 'CLEAR_ERROR' })).toEqual({
+      expect(userReducers(unauthenticatedState, {
+        type: 'CLEAR_ERROR'
+      })).toEqual({
         ...unauthenticatedState,
         status: {
           ...unauthenticatedState.status,
@@ -276,7 +299,9 @@ describe('user reducer', () => {
       });
     });
     it('should return previous state if action type is not handled', () => {
-      expect(userReducers(unauthenticatedState, { type: 'JKBHJVHG' })).toEqual(unauthenticatedState);
+      expect(userReducers(unauthenticatedState, {
+        type: 'JKBHJVHG'
+      })).toEqual(unauthenticatedState);
     });
   });
 });

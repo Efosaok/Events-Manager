@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import expect from 'expect';
 import eventMockData from '../__mocks__/eventMockData';
 import instance from '../../utils/axios';
-import { addEvent } from '../../actions/eventActions';
+import { cancelUserEvent, clearError } from '../../actions/eventActions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -13,60 +13,68 @@ describe('async event related actions', () => {
   beforeEach(() => moxios.install(instance));
   afterEach(() => moxios.uninstall());
 
-  describe('tests for async add event action', () => {
-    it('creates ADD_EVENT and ADD_EVENT_RESOLVED upon succesful event creation', async (done) => {
+  describe('tests for cancel event action', () => {
+    it(`creates CANCELLING_USER_EVENT and CANCEL_USER_EVENT_RESOLVED
+    upon succesful event cancellation`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
-          status: 201,
-          response: { ...eventMockData.oneEvent, message: 'you have successfully added an event' }
+          status: 200,
+          response: { message: 'you have successfully cancelled the event' }
         });
       });
       const returnedActions = [
         {
-          type: 'ADD_EVENT',
+          type: 'CANCELLING_USER_EVENT',
         },
         {
-          type: 'ADD_EVENT_RESOLVED',
+          type: 'CANCEL_USER_EVENT_RESOLVED',
           payload: {
-            message: 'you have successfully added an event',
-            ...eventMockData.oneEvent,
-          }
+            message: 'you have successfully cancelled the event',
+          },
+          eventId: '12345',
         },
       ];
-      const eventDetails = {
-        ...eventMockData.oneEvent,
-      };
       const store = mockStore({});
-      await store.dispatch(addEvent(eventDetails));
+      await store.dispatch(cancelUserEvent('12345'));
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });
 
-    it('creates ADD_EVENT and ADD_EVENT_REJECTED upon unsuccesful event creation', async (done) => {
+    it(`creates CANCELLING_USER_EVENT and CANCEL_USER_EVENT_REJECTED
+    upon unsuccesful event cancellation`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
-          status: 400,
+          status: 403,
           response: eventMockData.genericErrorResponse
         });
       });
       const returnedActions = [
         {
-          type: 'ADD_EVENT',
+          type: 'CANCELLING_USER_EVENT',
         },
         {
-          type: 'ADD_EVENT_REJECTED',
+          type: 'CANCEL_USER_EVENT_REJECTED',
           payload: {
             ...eventMockData.genericErrorResponse,
           }
         },
       ];
-      const eventDetails = {
-        ...eventMockData.oneEvent,
-      };
       const store = mockStore({});
-      await store.dispatch(addEvent(eventDetails));
+      await store.dispatch(cancelUserEvent('123'));
+      expect(store.getActions()).toEqual(returnedActions);
+      done();
+    });
+
+    it('creates CLEAR_ERROR when clearing event based errors', async (done) => {
+      const returnedActions = [
+        {
+          type: 'CLEAR_ERROR',
+        },
+      ];
+      const store = mockStore({});
+      await store.dispatch(clearError());
       expect(store.getActions()).toEqual(returnedActions);
       done();
     });

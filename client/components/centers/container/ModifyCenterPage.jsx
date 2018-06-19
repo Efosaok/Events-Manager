@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
 import prefillCheckbox from '../../../utils/checkboxprefill';
 import { UploadProgressBar, LoadingIcon } from '../../utils/LoaderComponents';
-import isValidModifyCenterDetails from '../../../validations/modifycenter.validate';
+import isValidModifyCenterDetails
+  from '../../../validations/modifycenter.validate';
 import {
   actionRejectedPrompter,
   actionRejectedPrompterTimer
@@ -64,7 +65,7 @@ export class ModifyCenterPage extends Component {
    *
    * @param {any} nextProps recent props received from redux store
    * @memberof ModifyCenterPage
-   * @returns {function} browserHistory function that redirects to allcenters page
+   * @returns {function} browserHistory push method
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps.center.status.modified) {
@@ -141,8 +142,9 @@ export class ModifyCenterPage extends Component {
    */
   uploadImage(event) {
     event.preventDefault();
+    const errorMessage = 'Please choose a file before attempting to upload';
     if (!this.state.imageFile) {
-      return actionRejectedPrompterTimer('Please choose a file before attempting to upload');
+      return actionRejectedPrompterTimer(errorMessage);
     }
     this.props.uploadImageAndGetUrl({
       ...this.state

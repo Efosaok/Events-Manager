@@ -14,7 +14,8 @@ const {
 } = users;
 describe('user middleware validation test-suites', () => {
   describe('POST /api/v1/users', () => {
-    it('returns an array of error message and status code 400 if user details are invalid', (done) => {
+    it(`returns an array of error message and status code
+    400 if user details are invalid`, (done) => {
       request(app)
         .post('/api/v1/users')
         .send(invalidDetails)
@@ -25,7 +26,8 @@ describe('user middleware validation test-suites', () => {
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('returns an array of error message and status code 400 if required details are missing', (done) => {
+    it(`returns an array of error message and status code 400
+    if required details are missing`, (done) => {
       request(app)
         .post('/api/v1/users')
         .send(missingDetails)
@@ -39,7 +41,8 @@ describe('user middleware validation test-suites', () => {
   });
 
   describe('POST /api/v1/users/signin', () => {
-    it('returns an array of error message and status code 400 if user details are invalid', (done) => {
+    it(`returns an array of error message and status code
+    400 if user details are invalid`, (done) => {
       request(app)
         .post('/api/v1/users/signin')
         .send(invalidSigninData)
@@ -50,7 +53,8 @@ describe('user middleware validation test-suites', () => {
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('returns an array of error message and status code 400 if required user details are missing', (done) => {
+    it(`returns an array of error message and status code 400
+    if required user details are missing`, (done) => {
       request(app)
         .post('/api/v1/users/signin')
         .send(missingSigninDetails)
@@ -61,7 +65,8 @@ describe('user middleware validation test-suites', () => {
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('returns an array of error message and status code 400 if required user details are empty', (done) => {
+    it(`returns an array of error message and status code 400 if
+    required user details are empty`, (done) => {
       request(app)
         .post('/api/v1/users/signin')
         .send(emptySigninData)
@@ -75,7 +80,8 @@ describe('user middleware validation test-suites', () => {
   });
 
   describe('PUT /api/v1/users/<userId>', () => {
-    it('returns an error message if userId route parameter is invalid', (done) => {
+    it(`returns an error message if userId route parameter
+    is invalid`, (done) => {
       request(app)
         .put('/api/v1/users/dafc8ad3-7a1f-4888-874d-')
         .set('Accept', 'application/json')

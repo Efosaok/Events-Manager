@@ -4,7 +4,11 @@ import thunk from 'redux-thunk';
 import expect from 'expect';
 import userMockData from '../__mocks__/userMockData';
 import instance from '../../utils/axios';
-import { getAllUsers, assignUserRole, clearError } from '../../actions/userActions';
+import {
+  getAllUsers,
+  assignUserRole,
+  clearError
+} from '../../actions/userActions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -14,7 +18,8 @@ describe('async user based actions', () => {
   afterEach(() => moxios.uninstall());
 
   describe('tests for fetching users', () => {
-    it('creates FETCHING_ALL_USERS and FETCH_ALL_USERS_RESOLVED upon fetchig users', async (done) => {
+    it(`creates FETCHING_ALL_USERS and FETCH_ALL_USERS_RESOLVED
+    upon fetchig users`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
@@ -37,7 +42,8 @@ describe('async user based actions', () => {
       done();
     });
 
-    it('creates FETCH_ALL_USERS_REJECTED upon unsuccesful fetch', async (done) => {
+    it(`creates FETCH_ALL_USERS_REJECTED
+    upon unsuccesful fetch`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
@@ -62,7 +68,8 @@ describe('async user based actions', () => {
   });
 
   describe('tests for async assign user new role', () => {
-    it('creates ASSIGNING_USER_NEW_ROLE and ASSIGNING_USER_NEW_ROLE_RESOLVED upon creating a User', async (done) => {
+    it(`creates ASSIGNING_USER_NEW_ROLE and ASSIGNING_USER_NEW_ROLE_RESOLVED
+    upon creating a User`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
@@ -86,7 +93,8 @@ describe('async user based actions', () => {
       done();
     });
 
-    it('creates ASSIGNING_USER_NEW_ROLE and ASSIGNING_USER_NEW_ROLE_REJECTED upon creating a User', async (done) => {
+    it(`creates ASSIGNING_USER_NEW_ROLE and ASSIGNING_USER_NEW_ROLE_REJECTED
+    upon creating a User`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({

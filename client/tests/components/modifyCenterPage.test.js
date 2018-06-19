@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import expect from 'expect';
-import { ModifyCenterPage } from '../../components/centers/container/ModifyCenterPage';
+import { ModifyCenterPage }
+  from '../../components/centers/container/ModifyCenterPage';
 
 const props = {
   center: {
@@ -38,7 +39,8 @@ describe('Modify center page test-suite', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  it('makes center-image-section div visible when image upload is paused', () => {
+  it(`makes center-image-section div
+  visible when image upload is paused`, () => {
     wrapper.setProps({
       center: {
         status: {
@@ -63,7 +65,8 @@ describe('Modify center page test-suite', () => {
     expect(wrapper.find('.center-image').exists()).toBe(true);
   });
 
-  it('redirects to all centers page when center has been modified succesfully', () => {
+  it(`redirects to all centers page when
+  center has been modified succesfully`, () => {
     wrapper.setProps({
       center: {
         status: {
@@ -89,7 +92,8 @@ describe('Modify center page test-suite', () => {
     expect(global.historyPath).toEqual('/centers');
   });
 
-  it('shows progress bar with pause and cancel button when uploading image', () => {
+  it(`shows progress bar with pause and
+  cancel button when uploading image`, () => {
     wrapper.setState({
       imageFile: undefined
     });
@@ -189,7 +193,8 @@ describe('Modify center page test-suite', () => {
     expect(wrapper.props().resumeUpload).toHaveBeenCalled();
   });
 
-  it('the resume button,upload-bar and pause button are not visible when the cancel button is clicked', () => {
+  it(`the resume button,upload-bar and pause button are
+  not visible when the cancel button is clicked`, () => {
     wrapper.find('.cancel-btn').simulate('click');
     wrapper.setProps({
       center: {
@@ -257,7 +262,9 @@ describe('Modify center page test-suite', () => {
     });
     wrapper
       .find('.imageFile')
-      .simulate('change', { target: { name: 'imageFile', file: 'large file' } });
+      .simulate('change', {
+        target: { name: 'imageFile', file: 'large file' }
+      });
     expect(wrapper.find('.imageFile').exists()).toBeTruthy();
     expect(wrapper.props().imageChangePrompt).toHaveBeenCalled();
   });

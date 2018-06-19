@@ -14,7 +14,8 @@ describe('async center related actions', () => {
   afterEach(() => moxios.uninstall());
 
   describe('tests for get center action', () => {
-    it('creates FETCHING_A_CENTER and FETCH_A_CENTER_RESOLVED upon succesful center fetch from api', async (done) => {
+    it(`creates FETCHING_A_CENTER and FETCH_A_CENTER_RESOLVED
+    upon succesful center fetch from api`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
@@ -37,7 +38,8 @@ describe('async center related actions', () => {
       done();
     });
 
-    it('creates FETCH_CENTER_REJECTED upon unsuccesful center fetch', async (done) => {
+    it(`creates FETCH_CENTER_REJECTED
+    upon unsuccesful center fetch`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
@@ -60,7 +62,8 @@ describe('async center related actions', () => {
       done();
     });
 
-    it('creates PROMPT_SEE_A_CENTER upon prompt to fetch a center', async (done) => {
+    it(`creates PROMPT_SEE_A_CENTER
+    upon prompt to fetch a center`, async (done) => {
       const returnedActions = [
         {
           type: 'PROMPT_SEE_A_CENTER',
@@ -73,7 +76,8 @@ describe('async center related actions', () => {
       done();
     });
 
-    it('creates CLEAR_ERROR upon clearing center-based errors', async (done) => {
+    it(`creates CLEAR_ERROR
+    upon clearing center-based errors`, async (done) => {
       const returnedActions = [
         {
           type: 'CLEAR_ERROR',

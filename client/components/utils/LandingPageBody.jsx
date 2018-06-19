@@ -61,7 +61,8 @@ export const LandingPageBody = (props) => {
                       <Link
                         to="/signup"
                         href="#rooms"
-                        className="btn dark-grey-text font-bold btn-rounded spacing"
+                        className="btn dark-grey-text
+                        font-bold btn-rounded spacing"
                         data-offset="100"
                       >
                         <button
@@ -87,8 +88,9 @@ export const LandingPageBody = (props) => {
                 Featured Event Centers
               </h3>
               <div className="row">
-                <div
-                  className="upcoming-events col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div className="upcoming-events col-xs-12
+                  col-sm-6 col-md-6 col-lg-4"
+                >
                   <div className="card feature-center-card">
                     <img
                       className="card-img-top"
@@ -102,14 +104,20 @@ export const LandingPageBody = (props) => {
                         # {centers[0].rentalCost}
                       </p>
                       <div className="card-menu d-flex justify-content-end">
-                        <button className="btn c-menu" id={centers[0].id} onClick={seeACenter}>
+                        <button
+                          className="btn c-menu"
+                          id={centers[0].id}
+                          onClick={seeACenter}
+                        >
                           see info
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="upcoming-events col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div className="upcoming-events col-xs-12
+                  col-sm-6 col-md-6 col-lg-4"
+                >
                   <div className="card feature-center-card">
                     <img
                       className="card-img-top"
@@ -123,14 +131,20 @@ export const LandingPageBody = (props) => {
                         # {centers[1].rentalCost}
                       </p>
                       <div className="card-menu d-flex justify-content-end">
-                        <button className="btn c-menu" id={centers[1].id} onClick={seeACenter}>
+                        <button
+                          className="btn c-menu"
+                          id={centers[1].id}
+                          onClick={seeACenter}
+                        >
                           see info
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="upcoming-events col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div className="upcoming-events col-xs-12
+                  col-sm-6 col-md-6 col-lg-4"
+                >
                   <div className="card feature-center-card">
                     <img
                       className="card-img-top"
@@ -144,7 +158,11 @@ export const LandingPageBody = (props) => {
                         # {centers[2].rentalCost}
                       </p>
                       <div className="card-menu d-flex justify-content-end">
-                        <button className="btn c-menu" id={centers[2].id} onClick={seeACenter}>
+                        <button
+                          className="btn c-menu"
+                          id={centers[2].id}
+                          onClick={seeACenter}
+                        >
                           see info
                         </button>
                       </div>
@@ -213,7 +231,9 @@ export const LandingPageBody = (props) => {
               What People Are Saying
             </h3>
             <div className="testimonies row">
-              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 first-testimony">
+              <div className="col-xs-12 col-sm-12 col-md-6
+                col-lg-6 first-testimony"
+              >
                 <div className="text-center">
                   <img
                     className="img rounded-circle img-correspondent"
@@ -223,7 +243,8 @@ export const LandingPageBody = (props) => {
                   <div className="testimony-text-section">
                     <p className="text-center testimony-info">
                       Making Arrangements for my Birthday was so much easier as
-                      I did not have to worry about the center for the event.<br />
+                      I did not have to worry about the center for the event.
+                      <br />
                       <span className="name-testimonial">
                         <b>- Kolawole taiwo</b>
                       </span>
@@ -231,7 +252,9 @@ export const LandingPageBody = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 second-testimony">
+              <div className="col-xs-12 col-sm-12 col-md-6
+                col-lg-6 second-testimony"
+              >
                 <div className="text-center">
                   <img
                     className="img rounded-circle img-correspondent"

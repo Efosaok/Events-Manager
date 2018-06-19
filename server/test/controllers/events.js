@@ -5,7 +5,9 @@ import events from '../__mocks__/events';
 import generateToken from '../generateToken';
 
 const { validEventDetails, modificationDetails } = events;
-const authToken = generateToken({ userId: 'df7204e8-3402-437d-a6ff-88ce0bf4e3c8' });
+const authToken = generateToken({
+  userId: 'df7204e8-3402-437d-a6ff-88ce0bf4e3c8'
+});
 describe('event related api endpoint test-suites', () => {
   describe('POST /api/v1/events', () => {
     it('creates an event and sends status code 201', (done) => {
@@ -59,7 +61,8 @@ describe('event related api endpoint test-suites', () => {
           expect(res.body.message).toEqual('Event successfully deleted');
         });
     });
-    it('returns status code 404 and error message if event is not found', (done) => {
+    it(`returns status code 404 and error
+    message if event is not found`, (done) => {
       request(app)
         .delete('/api/v1/events/976ea87b-5644-4a61-ba05-f910ddea3130')
         .set('Accept', 'application/json')

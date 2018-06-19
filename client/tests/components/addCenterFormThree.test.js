@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import expect from 'expect';
-import { AddCenterFormThree } from '../../components/centers/container/AddCenterFormThree';
+import { AddCenterFormThree }
+  from '../../components/centers/container/AddCenterFormThree';
 
 const props = {
   center: {
@@ -37,10 +38,16 @@ describe('Add center form three test suite', () => {
   });
 
   it('renders upload button when image has been chosen', () => {
-    wrapper.find('.imageFile').simulate('change', { target: { name: 'imageFile', value: 'Image File' } });
+    wrapper.find('.imageFile').simulate('change', {
+      target: {
+        name: 'imageFile',
+        value: 'Image File'
+      }
+    });
     expect(wrapper.find('.upload-btn').exists()).toBeTruthy();
   });
-  it('pause, cancel button and upload progress bar is rendered when the upload is started', () => {
+  it(`pause, cancel button and upload progress bar
+  is rendered when the upload is started`, () => {
     wrapper.find('.upload-btn').simulate('click');
     wrapper.setState({
       imageFile: 'New File',

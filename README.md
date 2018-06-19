@@ -108,6 +108,7 @@ To run the already-written tests of this application.
 ```
 $ npm test       // backend tests
 $ npm run jest       //frontend tests
+$ npm run e2e          // end to end test
 ```
 
 ## [](#limitations)Limitations

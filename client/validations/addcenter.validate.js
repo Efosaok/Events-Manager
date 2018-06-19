@@ -5,7 +5,11 @@ const alphaNumeric = (inputtxt) => {
   }
   return false;
 };
-
+/**
+ *
+ * @param {req} req object to be validated
+ * @returns {any} array or boolean
+ */
 const checkInvalidPrimaryCenterDetails = (req) => {
   const errorMessage = [];
   const {
@@ -58,7 +62,11 @@ const checkInvalidPrimaryCenterDetails = (req) => {
   }
   return true;
 };
-
+/**
+ *
+ * @param {req} req object to be validated
+ * @returns {any} array or boolean
+ */
 const checkInvalidRentalCostAndFacilities = (req) => {
   const errorMessage = [];
   const { facilities, rentalCost } = req;

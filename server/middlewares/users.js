@@ -20,18 +20,14 @@ const isValidEmail = (mail) => {
  */
 const checkInvalidUserDetails = (req, res, next) => {
   const {
-    firstname,
-    lastname,
-    email,
-    password,
-    confirmpassword,
+    firstname, lastname, email, password, confirmpassword
   } = req.body;
   const matchingDetails = {
     0: 'firstname',
     1: 'lastname',
     2: 'email',
     3: 'password',
-    4: 'confirmpassword',
+    4: 'confirmpassword'
   };
   const reqBody = [firstname, lastname, email, password, confirmpassword];
   const errorMessage = [];
@@ -63,7 +59,13 @@ const checkInvalidUserDetails = (req, res, next) => {
   if (isDigit) {
     errorMessage.push('Your name cannot be numbers');
   }
-  if (password && confirmpassword && password !== confirmpassword && password.trim() !== '' && confirmpassword.trim() !== '') {
+  if (
+    password &&
+    confirmpassword &&
+    password !== confirmpassword &&
+    password.trim() !== '' &&
+    confirmpassword.trim() !== ''
+  ) {
     errorMessage.push('password and confirmpassword are not equal');
   }
   if (errorMessage.length !== 0) {
@@ -125,5 +127,5 @@ const checkInvalidParams = (req, res, next) => {
 export default {
   checkInvalidUserDetails,
   checkInvalidUserSignIn,
-  checkInvalidParams,
+  checkInvalidParams
 };

@@ -25,7 +25,10 @@ describe('Sign up page', () => {
   });
 
   it('redirects back to dashboard if user is authenticated', () => {
-    localStorage.setItem('x-access-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZjcyMDRlOC0zNDAyLTQzN2QtYTZmZi04OGNlMGJmNGUzYzgiLCJyb2xlIjoiU3VwZXJBZG1pbiIsImlhdCI6MTUyODk4NjAzNiwiZXhwIjoxNTI5MzQ2MDM2fQ.2PDYoQQiMH3HJFxFNpMRwHlIMgvU7mvgJdyJvjhVX3Q');
+    localStorage.setItem(
+      'x-access-token',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZjcyMDRlOC0zNDAyLTQzN2QtYTZmZi04OGNlMGJmNGUzYzgiLCJyb2xlIjoiU3VwZXJBZG1pbiIsImlhdCI6MTUyODk4NjAzNiwiZXhwIjoxNTI5MzQ2MDM2fQ.2PDYoQQiMH3HJFxFNpMRwHlIMgvU7mvgJdyJvjhVX3Q' // eslint-disable-line
+    );
     const changedProps = {
       ...props,
       user: {
@@ -40,10 +43,14 @@ describe('Sign up page', () => {
   it('sets state to values from input field', () => {
     wrapper
       .find('.email')
-      .simulate('change', { target: { value: 'efosaokpugie@gmail.com', name: 'email' } });
+      .simulate('change', {
+        target: { value: 'efosaokpugie@gmail.com', name: 'email' }
+      });
     wrapper
       .find('.password')
-      .simulate('change', { target: { value: 'swalllious', password: 'swampious' } });
+      .simulate('change', {
+        target: { value: 'swalllious', password: 'swampious' }
+      });
     expect(wrapper.state().email).toEqual('efosaokpugie@gmail.com');
   });
 
@@ -59,38 +66,57 @@ describe('Sign up page', () => {
     });
     wrapper
       .find('.email')
-      .simulate('change', { target: { value: 'efosaokpugie@gmail.com', name: 'email' } });
+      .simulate('change', {
+        target: { value: 'efosaokpugie@gmail.com', name: 'email' }
+      });
     wrapper
       .find('.password')
-      .simulate('change', { target: { value: 'swalllious', name: 'password' } });
+      .simulate('change', {
+        target: { value: 'swalllious', name: 'password' }
+      });
     wrapper
       .find('.confirm-password')
-      .simulate('change', { target: { value: 'swalllious', name: 'confirmpassword' } });
+      .simulate('change', {
+        target: { value: 'swalllious', name: 'confirmpassword' }
+      });
     wrapper
       .find('.first-name')
-      .simulate('change', { target: { value: 'firstname', name: 'firstname' } });
+      .simulate('change', {
+        target: { value: 'firstname', name: 'firstname' }
+      });
     wrapper
       .find('.btn-submit')
       .simulate('click');
-    expect(props.actionRejectedPrompter).toHaveBeenCalledWith(['lastname field is required']);
+    expect(props.actionRejectedPrompter)
+      .toHaveBeenCalledWith(['lastname field is required']);
   });
 
   it('signs up user on successful validation', () => {
     wrapper
       .find('.email')
-      .simulate('change', { target: { value: 'efosaokpugie@gmail.com', name: 'email' } });
+      .simulate('change', {
+        target: { value: 'efosaokpugie@gmail.com', name: 'email' }
+      });
     wrapper
       .find('.password')
-      .simulate('change', { target: { value: 'swalllious', name: 'password' } });
+      .simulate('change', {
+        target: { value: 'swalllious', name: 'password' }
+      });
     wrapper
       .find('.confirm-password')
-      .simulate('change', { target: { value: 'swalllious', name: 'confirmpassword' } });
+      .simulate('change', {
+        target: { value: 'swalllious', name: 'confirmpassword' }
+      });
     wrapper
       .find('.first-name')
-      .simulate('change', { target: { value: 'firstname', name: 'firstname' } });
+      .simulate('change', {
+        target: { value: 'firstname', name: 'firstname' }
+      });
     wrapper
       .find('.last-name')
-      .simulate('change', { target: { value: 'swalllious', name: 'lastname' } });
+      .simulate('change', {
+        target: { value: 'swalllious', name: 'lastname' }
+      });
     wrapper
       .find('.btn-submit')
       .simulate('click');
@@ -98,7 +124,10 @@ describe('Sign up page', () => {
   });
 
   it('redirects to centers page if authenticated user is admin', () => {
-    localStorage.setItem('x-access-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZjcyMDRlOC0zNDAyLTQzN2QtYTZmZi04OGNlMGJmNGUzYzgiLCJyb2xlIjoiU3VwZXJBZG1pbiIsImlhdCI6MTUyODk4NjAzNiwiZXhwIjoxNTI5MzQ2MDM2fQ.2PDYoQQiMH3HJFxFNpMRwHlIMgvU7mvgJdyJvjhVX3Q');
+    localStorage.setItem(
+      'x-access-token',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZjcyMDRlOC0zNDAyLTQzN2QtYTZmZi04OGNlMGJmNGUzYzgiLCJyb2xlIjoiU3VwZXJBZG1pbiIsImlhdCI6MTUyODk4NjAzNiwiZXhwIjoxNTI5MzQ2MDM2fQ.2PDYoQQiMH3HJFxFNpMRwHlIMgvU7mvgJdyJvjhVX3Q' // eslint-disable-line
+    );
     wrapper.setProps({
       ...props,
       user: {

@@ -7,7 +7,8 @@ import generateToken from '../generateToken';
 const { undefinedCenterDetails } = centers;
 const authToken = generateToken({});
 describe('authentication middleware test-suite', () => {
-  it('returns error message and status code 401 if token is invalid', (done) => {
+  it(`returns error message and status
+  code 401 if token is invalid`, (done) => {
     request(app)
       .post('/api/v1/centers')
       .send(undefinedCenterDetails)
@@ -16,10 +17,12 @@ describe('authentication middleware test-suite', () => {
       .expect('Content-Type', /json/)
       .expect(401, done)
       .expect((res) => {
-        expect(res.body.error).toEqual('There seem to be an error,please login again to continue');
+        expect(res.body.error)
+          .toEqual('There seem to be an error,please login again to continue');
       });
   });
-  it('returns error message and status code 401 if token is not found', (done) => {
+  it(`returns error message and status
+  code 401 if token is not found`, (done) => {
     request(app)
       .post('/api/v1/centers')
       .send(undefinedCenterDetails)

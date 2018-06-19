@@ -6,7 +6,8 @@ let alternateInitialState;
 
 describe('tests for center reducers', () => {
   describe('add center reducers', () => {
-    it('sets key primaryCenterDetails to primary details of a center and status key addedPrimaryCenterDetails to true', () => {
+    it(`sets key primaryCenterDetails to primary details of
+    a center and status key addedPrimaryCenterDetails to true`, () => {
       expect(centerReducers(centerInitialState(), {
         type: 'ADD_PRIMARY_CENTER_DETAILS',
         payload: {
@@ -29,7 +30,8 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets key rentalCostAndFacilities to object from payload of a center and status key addedCost and addedFacilities to true', () => {
+    it(`sets key rentalCostAndFacilities to object from payload of a center
+    and status key addedCost and addedFacilities to true`, () => {
       expect(centerReducers(centerInitialState(), {
         type: 'ADD_RENTAL_COST_AND_FACILITIES',
         payload: {
@@ -49,8 +51,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key addingCenter to true on ADDING_CENTER action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'ADDING_CENTER' })).toEqual({
+    it(`sets status key addingCenter to true
+    on ADDING_CENTER action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'ADDING_CENTER'
+      })).toEqual({
         ...centerInitialState(),
         status: {
           ...centerInitialState().status,
@@ -59,8 +64,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key addedCenter and error to false and true respectively on ADD_CENTER_REJECTED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'ADD_CENTER_REJECTED' })).toEqual({
+    it(`sets status key addedCenter and error to false and true respectively
+    on ADD_CENTER_REJECTED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'ADD_CENTER_REJECTED'
+      })).toEqual({
         ...centerInitialState(),
         status: {
           ...centerInitialState().status,
@@ -70,8 +78,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key addedCenter to true on ADD_CENTER_RESOLVED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'ADD_CENTER_RESOLVED' })).toEqual({
+    it(`sets status key addedCenter to true
+    on ADD_CENTER_RESOLVED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'ADD_CENTER_RESOLVED'
+      })).toEqual({
         ...centerInitialState(),
         status: {
           ...centerInitialState().status,
@@ -83,8 +94,11 @@ describe('tests for center reducers', () => {
   });
 
   describe('image upload reducers', () => {
-    it('sets status key uploadingImage to true and parses imageUpload object on UPLOADING_CENTER_IMAGE action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'UPLOADING_CENTER_IMAGE', payload: '0%' })).toEqual({
+    it(`sets status key uploadingImage to true and parses
+    imageUpload object on UPLOADING_CENTER_IMAGE action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'UPLOADING_CENTER_IMAGE', payload: '0%'
+      })).toEqual({
         ...centerInitialState(),
         imageUpload: '0%',
         status: {
@@ -93,8 +107,12 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key uploadingImageCancelled to true on UPLOADING_CENTER_IMAGE_CANCELLED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'UPLOADING_CENTER_IMAGE_CANCELLED', payload: '0%' })).toEqual({
+    it(`sets status key uploadingImageCancelled to true on
+    UPLOADING_CENTER_IMAGE_CANCELLED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'UPLOADING_CENTER_IMAGE_CANCELLED',
+        payload: '0%'
+      })).toEqual({
         ...centerInitialState(),
         status: {
           ...centerInitialState().status,
@@ -102,8 +120,12 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key uploadingImagePaused to true on UPLOADING_CENTER_IMAGE_PAUSED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'UPLOADING_CENTER_IMAGE_PAUSED', payload: '25%' })).toEqual({
+    it(`sets status key uploadingImagePaused to true on
+    UPLOADING_CENTER_IMAGE_PAUSED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'UPLOADING_CENTER_IMAGE_PAUSED',
+        payload: '25%'
+      })).toEqual({
         ...centerInitialState(),
         imageUpload: '25%',
         status: {
@@ -112,8 +134,12 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key uploadingImagePaused to true on UPLOADING_CENTER_IMAGE_PAUSED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'UPLOADING_CENTER_IMAGE_PAUSED', payload: '25%' })).toEqual({
+    it(`sets status key uploadingImagePaused to true
+    on UPLOADING_CENTER_IMAGE_PAUSED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'UPLOADING_CENTER_IMAGE_PAUSED',
+        payload: '25%'
+      })).toEqual({
         ...centerInitialState(),
         imageUpload: '25%',
         status: {
@@ -122,8 +148,12 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key error to true on UPLOADING_CENTER_IMAGE_REJECTED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'UPLOAD_CENTER_IMAGE_REJECTED', payload: { error: 'oops, an error occured', } })).toEqual({
+    it(`sets status key error to true on
+    UPLOADING_CENTER_IMAGE_REJECTED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'UPLOAD_CENTER_IMAGE_REJECTED',
+        payload: { error: 'oops, an error occured', }
+      })).toEqual({
         ...centerInitialState(),
         errorMessage: 'oops, an error occured',
         status: {
@@ -132,8 +162,12 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key uploadedImage to t rue on UPLOAD_CENTER_IMAGE_RESOLVED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'UPLOAD_CENTER_IMAGE_RESOLVED', payload: '100%' })).toEqual({
+    it(`sets status key uploadedImage to true on
+    UPLOAD_CENTER_IMAGE_RESOLVED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'UPLOAD_CENTER_IMAGE_RESOLVED',
+        payload: '100%'
+      })).toEqual({
         ...centerInitialState(),
         imageUpload: '100%',
         status: {
@@ -145,8 +179,11 @@ describe('tests for center reducers', () => {
   });
 
   describe('fetch a center reducers', () => {
-    it('sets status key fetching to true on FETCHING_A_CENTER action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'FETCHING_A_CENTER' })).toEqual({
+    it(`sets status key fetching to true on
+    FETCHING_A_CENTER action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'FETCHING_A_CENTER'
+      })).toEqual({
         ...centerInitialState(),
         oneCenter: {
           aCenter: {},
@@ -158,8 +195,11 @@ describe('tests for center reducers', () => {
         },
       });
     });
-    it('sets status key getACenterprompted to true and parses centerId to key centerToGet on action type PROMPT_SEE_A_CENTER', () => {
-      expect(centerReducers(centerInitialState(), { type: 'PROMPT_SEE_A_CENTER', centerId: 1 })).toEqual({
+    it(`sets status key getACenterprompted to true and parses centerId to
+    key centerToGet on action type PROMPT_SEE_A_CENTER`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'PROMPT_SEE_A_CENTER', centerId: 1
+      })).toEqual({
         ...centerInitialState(),
         centerToGet: 1,
         status: {
@@ -168,8 +208,12 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key fetching to true on FETCH_A_CENTER_REJECTED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'FETCH_A_CENTER_REJECTED', payload: 'oops, an error occured', })).toEqual({
+    it(`sets status key fetching to true on
+    FETCH_A_CENTER_REJECTED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'FETCH_A_CENTER_REJECTED',
+        payload: 'oops, an error occured',
+      })).toEqual({
         ...centerInitialState(),
         errorMessage: 'oops, an error occured',
         status: {
@@ -179,7 +223,8 @@ describe('tests for center reducers', () => {
         },
       });
     });
-    it('sets status key fetched to true and parse centerDetails on FETCH_A_CENTER_RESOLVED action type', () => {
+    it(`sets status key fetched to true and parse centerDetails
+    on FETCH_A_CENTER_RESOLVED action type`, () => {
       expect(centerReducers(
         centerInitialState(),
         {
@@ -236,8 +281,11 @@ describe('tests for center reducers', () => {
   });
 
   describe('fetch centers', () => {
-    it('sets the status key fetchingCenters to true on FETCH_CENTERS action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'FETCH_CENTERS' })).toEqual({
+    it(`sets the status key fetchingCenters to true
+    on FETCH_CENTERS action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'FETCH_CENTERS'
+      })).toEqual({
         ...centerInitialState(),
         status: {
           ...centerInitialState().status,
@@ -246,8 +294,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets the status key error to true on FETCH_CENTERS_REJECTED action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'FETCH_CENTERS_REJECTED' })).toEqual({
+    it(`sets the status key error to true on
+    FETCH_CENTERS_REJECTED action type`, () => {
+      expect(centerReducers(centerInitialState(), {
+        type: 'FETCH_CENTERS_REJECTED'
+      })).toEqual({
         ...centerInitialState(),
         allCenters: {
           centers: [],
@@ -259,7 +310,8 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets the status key fetched to true and sets allCenters key to parsed in values on FETCH_CENTERS_RESOLVED action type', () => {
+    it(`sets the status key fetched to true and sets allCenters key to parsed 
+    in values on FETCH_CENTERS_RESOLVED action type`, () => {
       expect(centerReducers(centerInitialState(), {
         type: 'FETCH_CENTERS_RESOLVED',
         payload: {
@@ -304,8 +356,11 @@ describe('tests for center reducers', () => {
   });
 
   describe('modify centers reducers', () => {
-    it('sets status key modificationPrompted to true on MODIFICATION_PROMPT action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'MODIFICATION_PROMPT', centerId: 1 })).toEqual({
+    it(`sets status key modificationPrompted to
+    true on MODIFICATION_PROMPT action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'MODIFICATION_PROMPT', centerId: 1
+      })).toEqual({
         ...alternateInitialState,
         centerToBeModified: [{
           name: 'nice center',
@@ -318,8 +373,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key modifying to true on MODIFYING_CENTER action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'MODIFYING_CENTER' })).toEqual({
+    it(`sets status key modifying to true
+    on MODIFYING_CENTER action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'MODIFYING_CENTER'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -328,8 +386,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key modifying and modifed to false on MODIFY_CENTER_REJECTED action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'MODIFY_CENTER_REJECTED' })).toEqual({
+    it(`sets status key modifying and modifed to false
+    on MODIFY_CENTER_REJECTED action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'MODIFY_CENTER_REJECTED'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -338,8 +399,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key changeImagePrompted to true on IMAGE_CHANGE_PROMPT action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'IMAGE_CHANGE_PROMPT' })).toEqual({
+    it(`sets status key changeImagePrompted to true
+    on IMAGE_CHANGE_PROMPT action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'IMAGE_CHANGE_PROMPT'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -347,8 +411,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key modifed to true on MODIFY_CENTER_RESOLVED action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'MODIFY_CENTER_RESOLVED' })).toEqual({
+    it(`sets status key modifed to true on
+    MODIFY_CENTER_RESOLVED action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'MODIFY_CENTER_RESOLVED'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -360,8 +427,11 @@ describe('tests for center reducers', () => {
   });
 
   describe('cancel user event reducers', () => {
-    it('sets status key cancellingEvent to true on CANCELLING_USER_EVENT action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'CANCELLING_USER_EVENT' })).toEqual({
+    it(`sets status key cancellingEvent to true
+    on CANCELLING_USER_EVENT action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'CANCELLING_USER_EVENT'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -370,8 +440,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key error to true on CANCEL_USER_EVENT_REJECTED action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'CANCEL_USER_EVENT_REJECTED' })).toEqual({
+    it(`sets status key error to true on
+    CANCEL_USER_EVENT_REJECTED action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'CANCEL_USER_EVENT_REJECTED'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -381,8 +454,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key error to true on CANCEL_USER_EVENT_RESOLVED action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'CANCEL_USER_EVENT_RESOLVED', eventId: 1 })).toEqual({
+    it(`sets status key error to true on
+    CANCEL_USER_EVENT_RESOLVED action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'CANCEL_USER_EVENT_RESOLVED', eventId: 1
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -392,8 +468,11 @@ describe('tests for center reducers', () => {
         }
       });
     });
-    it('sets status key error to true on CANCEL_USER_EVENT_RESOLVED action type', () => {
-      expect(centerReducers(alternateInitialState, { type: 'CANCEL_USER_EVENT_RESOLVED' })).toEqual({
+    it(`sets status key error to true on
+    CANCEL_USER_EVENT_RESOLVED action type`, () => {
+      expect(centerReducers(alternateInitialState, {
+        type: 'CANCEL_USER_EVENT_RESOLVED'
+      })).toEqual({
         ...alternateInitialState,
         status: {
           ...alternateInitialState.status,
@@ -407,10 +486,14 @@ describe('tests for center reducers', () => {
 
   describe('clear error and logout reducers', () => {
     it('returns initial state on USER_LOGOUT action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'USER_LOGOUT' })).toEqual(centerInitialState());
+      expect(centerReducers(centerInitialState(), {
+        type: 'USER_LOGOUT'
+      })).toEqual(centerInitialState());
     });
     it('resets all status keys to false on CLEAR_ERROR action type', () => {
-      expect(centerReducers(centerInitialState(), { type: 'CLEAR_ERROR' })).toEqual({
+      expect(centerReducers(centerInitialState(), {
+        type: 'CLEAR_ERROR'
+      })).toEqual({
         ...centerInitialState(),
         status: {
           fetching: false,
@@ -432,7 +515,9 @@ describe('tests for center reducers', () => {
       });
     });
     it('returns default state if unhandled action type is passed', () => {
-      expect(centerReducers(centerInitialState(), { type: 'NULL' })).toEqual(centerInitialState());
+      expect(centerReducers(centerInitialState(), {
+        type: 'NULL'
+      })).toEqual(centerInitialState());
     });
   });
 });

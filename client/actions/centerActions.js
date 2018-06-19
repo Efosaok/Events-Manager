@@ -202,23 +202,27 @@ const modificationPrompt = centerToBeModified => (dispatch) => {
  * @returns {object} parses response from api to reducers.
  *
  */
-const modifyCenter = (detailsToBeModified, centerToBeModified) => (dispatch) => {
-  dispatch({ type: 'MODIFYING_CENTER' });
-  return instance({
-    method: 'PUT',
-    url: `/api/v1/centers/${centerToBeModified}`,
-    headers: { 'x-access-token': localStorage.getItem('x-access-token') },
-    data: detailsToBeModified
-  })
-    .then((res) => {
-      dispatch({ type: 'MODIFY_CENTER_RESOLVED', payload: res.data });
-      toastPrompter('Center has been modified successfully');
+const modifyCenter = (detailsToBeModified, centerToBeModified) =>
+  (dispatch) => {
+    dispatch({ type: 'MODIFYING_CENTER' });
+    return instance({
+      method: 'PUT',
+      url: `/api/v1/centers/${centerToBeModified}`,
+      headers: { 'x-access-token': localStorage.getItem('x-access-token') },
+      data: detailsToBeModified
     })
-    .catch((err) => {
-      dispatch({ type: 'MODIFY_CENTER_REJECTED', payload: err.response.data });
-      actionRejectedPrompter(err.response.data.error);
-    });
-};
+      .then((res) => {
+        dispatch({ type: 'MODIFY_CENTER_RESOLVED', payload: res.data });
+        toastPrompter('Center has been modified successfully');
+      })
+      .catch((err) => {
+        dispatch({
+          type: 'MODIFY_CENTER_REJECTED',
+          payload: err.response.data
+        });
+        actionRejectedPrompter(err.response.data.error);
+      });
+  };
 
 const imageChangePrompt = () => (dispatch) => {
   dispatch({ type: 'IMAGE_CHANGE_PROMPT' });

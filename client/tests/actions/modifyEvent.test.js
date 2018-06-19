@@ -14,12 +14,16 @@ describe('async event based actions', () => {
   afterEach(() => moxios.uninstall());
 
   describe('tests for modify event action', () => {
-    it('creates MODIFYING_EVENT and MODIFY_EVENT_RESOLVED upon succesful event creation', async (done) => {
+    it(`creates MODIFYING_EVENT and MODIFY_EVENT_RESOLVED
+    upon succesful event creation`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
           status: 201,
-          response: { ...eventMockData.oneEvent, message: 'you have successfully modified this event' }
+          response: {
+            ...eventMockData.oneEvent,
+            message: 'you have successfully modified this event'
+          }
         });
       });
       const returnedActions = [
@@ -44,7 +48,8 @@ describe('async event based actions', () => {
       done();
     });
 
-    it('creates MODIFYING_EVENT and MODIFY_EVENT_REJECTED upon unsuccesful event modification', async (done) => {
+    it(`creates MODIFYING_EVENT and MODIFY_EVENT_REJECTED
+    upon unsuccesful event modification`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({

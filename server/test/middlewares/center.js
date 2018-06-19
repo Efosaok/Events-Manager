@@ -12,7 +12,8 @@ const { undefinedCenterDetails, invalidCenterDetails } = centers;
 
 describe('test suit for center validation middleware function', () => {
   describe('POST /api/v1/centers', () => {
-    it('it returns an array of error message and status code 400 if center details are invalid', (done) => {
+    it(`it returns an array of error message and status
+    code 400 if center details are invalid`, (done) => {
       request(app)
         .post('/api/v1/centers')
         .send(undefinedCenterDetails)
@@ -24,7 +25,8 @@ describe('test suit for center validation middleware function', () => {
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('it returns an array of error message and status code 400 if center details are invalid', (done) => {
+    it(`it returns an array of error message and status
+    code 400 if center details are invalid`, (done) => {
       request(app)
         .post('/api/v1/centers')
         .send(invalidCenterDetails)
@@ -36,7 +38,8 @@ describe('test suit for center validation middleware function', () => {
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('it returns an array of error message and status code 400 if center details are invalid', (done) => {
+    it(`it returns an array of error message and status
+    code 400 if center details are invalid`, (done) => {
       request(app)
         .post('/api/v1/centers')
         .send(invalidCenterDetails)
@@ -51,7 +54,8 @@ describe('test suit for center validation middleware function', () => {
   });
 
   describe('PUT /api/v1/centers/<centerId>', () => {
-    it('it returns an array of error message and status code 400 if center details are invalid', (done) => {
+    it(`it returns an array of error message and status
+    code 400 if center details are invalid`, (done) => {
       request(app)
         .put('/api/v1/centers/bc4725b5-1840-4ab3-8fc9-08132572dedc')
         .send(undefinedCenterDetails)
@@ -63,7 +67,8 @@ describe('test suit for center validation middleware function', () => {
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('it returns an array of error message and status code 400 if center details are invalid', (done) => {
+    it(`it returns an array of error message and status
+    code 400 if center details are invalid`, (done) => {
       request(app)
         .put('/api/v1/centers/bc4725b5-1840-4ab3-8fc9-08132572dedc')
         .send(invalidCenterDetails)
@@ -75,7 +80,8 @@ describe('test suit for center validation middleware function', () => {
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('it returns an array of error message and status code 400 if center details are invalid', (done) => {
+    it(`it returns an array of error message and status
+    code 400 if center details are invalid`, (done) => {
       request(app)
         .put('/api/v1/centers/bc4725b5-1840-4ab3-8fc9-08132572dedc')
         .send(invalidCenterDetails)
@@ -87,7 +93,8 @@ describe('test suit for center validation middleware function', () => {
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('returns a status code of 400 and error message if id is invalid', (done) => {
+    it(`returns a status code of 400 and
+    error message if id is invalid`, (done) => {
       request(app)
         .put('/api/v1/centers/bc4725b5-1840-4ab3-8')
         .send(invalidCenterDetails)

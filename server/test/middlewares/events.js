@@ -10,12 +10,13 @@ const {
   pastStartDate,
   pastEndDate,
   emptyEventDetails,
-  greaterStartDate,
+  greaterStartDate
 } = events;
 const authToken = generateToken({});
-describe('test suite for add event and modify event validations function', () => {
+describe('test suite for add event and modify event validations', () => {
   describe('POST /api/v1/events', () => {
-    it('returns an array of error message and status code 400 on invalid event details', (done) => {
+    it(`returns an array of error message and status code
+    400 on invalid event details`, (done) => {
       request(app)
         .post('/api/v1/events')
         .send(invalidEventDetails)
@@ -27,7 +28,8 @@ describe('test suite for add event and modify event validations function', () =>
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('returns an array of error message and status code 400 on missing event details', (done) => {
+    it(`returns an array of error message and status
+    code 400 on missing event details`, (done) => {
       request(app)
         .post('/api/v1/events/')
         .send(missingEventDetails)
@@ -48,7 +50,8 @@ describe('test suite for add event and modify event validations function', () =>
         .expect('Content-Type', /json/)
         .expect(406, done)
         .expect((res) => {
-          expect(res.body.error).toEqual('The start date chosen is past, please choose another date');
+          expect(res.body.error)
+            .toEqual('The start date chosen is past, please choose another date'); // eslint-disable-line
         });
     });
     it('returns an array of error message if endDate is past', (done) => {
@@ -60,10 +63,12 @@ describe('test suite for add event and modify event validations function', () =>
         .expect('Content-Type', /json/)
         .expect(406, done)
         .expect((res) => {
-          expect(res.body.error).toEqual('The end date chosen is past, please choose another date');
+          expect(res.body.error)
+            .toEqual('The end date chosen is past, please choose another date');
         });
     });
-    it('returns an array of error message if startDate is greater than endDate', (done) => {
+    it(`returns an array of error message if
+    startDate is greater than endDate`, (done) => {
       request(app)
         .post('/api/v1/events/')
         .send(greaterStartDate)
@@ -77,7 +82,8 @@ describe('test suite for add event and modify event validations function', () =>
     });
   });
   describe('PUT /api/v1/events/<eventId>', () => {
-    it('returns an array of error message and status code 400 on invalid event details', (done) => {
+    it(`returns an array of error message and status
+    code 400 on invalid event details`, (done) => {
       request(app)
         .put('/api/v1/events/bc4725b5-1840-4ab3-8fc9-08132572dedc')
         .send(invalidEventDetails)
@@ -89,7 +95,8 @@ describe('test suite for add event and modify event validations function', () =>
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('returns an array of error message and status code 400 on empty event detail', (done) => {
+    it(`returns an array of error message and
+    status code 400 on empty event detail`, (done) => {
       request(app)
         .put('/api/v1/events/bc4725b5-1840-4ab3-8fc9-08132572dedc')
         .send(emptyEventDetails)
@@ -101,7 +108,8 @@ describe('test suite for add event and modify event validations function', () =>
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('returns error message and status code 406 if startDate is past', (done) => {
+    it(`returns error message and status
+    code 406 if startDate is past`, (done) => {
       request(app)
         .put('/api/v1/events/bc4725b5-1840-4ab3-8fc9-08132572dedc')
         .send(pastStartDate)
@@ -110,10 +118,12 @@ describe('test suite for add event and modify event validations function', () =>
         .expect('Content-Type', /json/)
         .expect(406, done)
         .expect((res) => {
-          expect(res.body.error).toEqual('The start date chosen is past, please choose another date');
+          expect(res.body.error)
+            .toEqual('The start date chosen is past, please choose another date'); // eslint-disable-line
         });
     });
-    it('returns error message and status code 406 if endDate is past', (done) => {
+    it(`returns error message and status
+    code 406 if endDate is past`, (done) => {
       request(app)
         .put('/api/v1/events/bc4725b5-1840-4ab3-8fc9-08132572dedc')
         .send(pastEndDate)
@@ -122,10 +132,12 @@ describe('test suite for add event and modify event validations function', () =>
         .expect('Content-Type', /json/)
         .expect(406, done)
         .expect((res) => {
-          expect(res.body.error).toEqual('The end date chosen is past, please choose another date');
+          expect(res.body.error)
+            .toEqual('The end date chosen is past, please choose another date');
         });
     });
-    it('returns an array of error message if startDate is greater than endDate', (done) => {
+    it(`returns an array of error message if
+    startDate is greater than endDate`, (done) => {
       request(app)
         .put('/api/v1/events/bc4725b5-1840-4ab3-8fc9-08132572dedc')
         .send(greaterStartDate)
@@ -137,7 +149,8 @@ describe('test suite for add event and modify event validations function', () =>
           expect(Array.isArray(res.body.error)).toBeTruthy();
         });
     });
-    it('returns an error message and status code 400 if event id is invalid', (done) => {
+    it(`returns an error message and status
+    code 400 if event id is invalid`, (done) => {
       request(app)
         .put('/api/v1/events/bc4725b5-1840-4ab3-8fc9-0813257')
         .send(greaterStartDate)
@@ -151,4 +164,3 @@ describe('test suite for add event and modify event validations function', () =>
     });
   });
 });
-

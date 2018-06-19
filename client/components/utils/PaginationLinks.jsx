@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PaginationLinks = props => (
-  <div className="pagination-links d-flex justify-content-center pagination-navs">
+  <div className="pagination-links d-flex
+    justify-content-center pagination-navs"
+  >
     <nav aria-label="...">
       <ul className="pagination">
         {props.currentPage === 1 && (

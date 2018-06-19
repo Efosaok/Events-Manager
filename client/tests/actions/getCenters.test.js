@@ -14,7 +14,8 @@ describe('async center based actions', () => {
   afterEach(() => moxios.uninstall());
 
   describe('tests for centers fetch action', () => {
-    it('creates FETCH_CENTERS and FETCH_CENTERS_RESOLVED upon succesful centers fetch from api', async (done) => {
+    it(`creates FETCH_CENTERS and FETCH_CENTERS_RESOLVED
+    upon succesful centers fetch from api`, async (done) => {
       const successResponse = [
         centerMockData.successFetchCenter,
       ];
@@ -40,7 +41,8 @@ describe('async center based actions', () => {
       done();
     });
 
-    it('creates FETCH_CENTERS_REJECTED upon unsuccesful centers fetch', async (done) => {
+    it(`creates FETCH_CENTERS_REJECTED
+    upon unsuccesful centers fetch`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({

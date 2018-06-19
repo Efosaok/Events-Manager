@@ -9,7 +9,8 @@ import CenterList from '../presentational/CenterList';
 import { actionRejectedPrompter } from '../../../utils/alerts.sweetalert';
 import { LoadingIcon, LargeLoadingIcon } from '../../utils/LoaderComponents';
 import { prefillVenue } from '../../../utils/mescill.utils';
-import isValidModificationDetails from '../../../validations/modifyevent.validate';
+import isValidModificationDetails
+  from '../../../validations/modifyevent.validate';
 import ModifyEventWrapper from '../../HOC/ModifyEventWrapper';
 
 /**

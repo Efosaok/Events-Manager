@@ -5,7 +5,11 @@ const alphaNumeric = (inputtxt) => {
   }
   return false;
 };
-
+/**
+ *
+ * @param {req} req object to be validated
+ * @returns {any} array or boolean
+ */
 const checkInvalidModifyCenterDetails = (req) => {
   const errorMessage = [];
   const modifiedParams = [];

@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import expect from 'expect';
-import { ModifyEventPage } from '../../components/events/container/ModifyEventPage';
+import { ModifyEventPage }
+  from '../../components/events/container/ModifyEventPage';
 
 const props = {
   center: {
@@ -69,7 +70,8 @@ describe('modify Event page', () => {
     ]);
   });
 
-  it('modifies event when the modify event button is clicked and redirects to user events page', () => {
+  it(`modifies event when the modify event button
+  is clicked and redirects to user events page`, () => {
     wrapper.find('.name').simulate('change', {
       target: { value: 'Modified Event', name: 'name' }
     });

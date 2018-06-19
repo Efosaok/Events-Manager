@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
 
 import { getPrimaryCenterDetails } from '../../../actions/centerActions';
-import { checkInvalidPrimaryCenterDetails } from '../../../validations/addcenter.validate';
+import { checkInvalidPrimaryCenterDetails } from
+  '../../../validations/addcenter.validate';
 import { actionRejectedPrompter } from '../../../utils/alerts.sweetalert';
 import AuthPages from '../../HOC/AuthPages';
 /**

@@ -32,7 +32,6 @@ app.use(logger('dev'));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json());
@@ -47,10 +46,14 @@ app.all('*', (req, res, next) => {
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
   next();
 });
-// Setup a default catch-all route that sends back a welcome message in JSON format.
+// Setup a default catch-all route that sends
+// back a welcome message in JSON format.
 userRoutes(app);
 centerRoutes(app);
 eventRoutes(app);

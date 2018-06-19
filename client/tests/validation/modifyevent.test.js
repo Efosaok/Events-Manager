@@ -1,5 +1,6 @@
 import expect from 'expect';
-import checkInvalidModifyEventDetails from '../../validations/modifyevent.validate';
+import checkInvalidModifyEventDetails
+  from '../../validations/modifyevent.validate';
 
 describe('add event validator tests', () => {
   it('returns an array of error messages on invalid inputs', () => {
@@ -12,7 +13,7 @@ describe('add event validator tests', () => {
     };
     expect(Array.isArray(checkInvalidModifyEventDetails(inputs))).toBeTruthy();
   });
-  it('returns an array of error messages on invalid inputs', () => {
+  it('returns an array of error messages if date is invalid', () => {
     const inputs = {
       name: 'My Birthday',
       type: '230000',
@@ -22,7 +23,7 @@ describe('add event validator tests', () => {
     };
     expect(Array.isArray(checkInvalidModifyEventDetails(inputs))).toBeTruthy();
   });
-  it('returns an array of error messages on invalid inputs', () => {
+  it('returns an array of error messages if name is empty', () => {
     const inputs = {
       name: '     ',
       type: '230000',
@@ -42,7 +43,7 @@ describe('add event validator tests', () => {
     };
     expect(Array.isArray(checkInvalidModifyEventDetails(inputs))).toBeTruthy();
   });
-  it('returns an true if no errors are found', () => {
+  it('returns an array of error messages if name is number', () => {
     const inputs = {
       name: '656566665',
       type: '230000',
@@ -52,7 +53,7 @@ describe('add event validator tests', () => {
     };
     expect(checkInvalidModifyEventDetails(inputs)).toBeTruthy();
   });
-  it('returns an true if no errors are found', () => {
+  it('returns true if no errors are found', () => {
     const inputs = {
       name: 'Nice Event',
       type: 'Seminar',

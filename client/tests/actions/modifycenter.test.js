@@ -14,7 +14,8 @@ describe('async center related actions', () => {
   afterEach(() => moxios.uninstall());
 
   describe('tests for async modify center action', () => {
-    it('creates MODIFYING_CENTER and MODIFY_CENTER_RESOLVED upon succesful center modification', async (done) => {
+    it(`creates MODIFYING_CENTER and MODIFY_CENTER_RESOLVED
+    upon succesful center modification`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
@@ -40,7 +41,8 @@ describe('async center related actions', () => {
       done();
     });
 
-    it('creates MODIFY_CENTER_REJECTED upon unsuccesful center modification', async (done) => {
+    it(`creates MODIFY_CENTER_REJECTED upon
+    unsuccesful center modification`, async (done) => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
@@ -68,7 +70,8 @@ describe('async center related actions', () => {
   });
 
   describe('tests for modification prompt action', () => {
-    it('creates MODIFICATION_PROMPT upon center modification is prompted', async (done) => {
+    it(`creates MODIFICATION_PROMPT upon
+    center modification is prompted`, async (done) => {
       const returnedActions = [
         {
           type: 'MODIFICATION_PROMPT',

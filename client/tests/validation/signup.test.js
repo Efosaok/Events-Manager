@@ -2,7 +2,7 @@ import expect from 'expect';
 import signupValidator from '../../validations/signup.validate';
 
 describe('signup validator', () => {
-  it('returns an array of error message if error is invalid', () => {
+  it('returns an array of error message ifsome field are empty', () => {
     const inputs = {
       firstname: 'John',
       lastname: '    ',
@@ -12,7 +12,7 @@ describe('signup validator', () => {
     };
     expect(Array.isArray(signupValidator(inputs))).toBeTruthy();
   });
-  it('returns an array of error message if error is invalid', () => {
+  it('returns an array of error message if email is invalid', () => {
     const inputs = {
       firstname: '5678909876567',
       email: 'efosa.com',
@@ -21,7 +21,7 @@ describe('signup validator', () => {
     };
     expect(Array.isArray(signupValidator(inputs))).toBeTruthy();
   });
-  it('returns true if no errors are passed', () => {
+  it('returns true if details are valid', () => {
     const inputs = {
       firstname: 'John',
       lastname: 'Doe',

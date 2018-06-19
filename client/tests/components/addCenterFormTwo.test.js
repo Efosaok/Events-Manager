@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import expect from 'expect';
-import { AddCenterFormTwo } from '../../components/centers/container/AddCenterFormTwo';
+import { AddCenterFormTwo }
+  from '../../components/centers/container/AddCenterFormTwo';
 
 const props = {
   center: {
