@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import isAdmin from '../../helpers/isAdmin';
@@ -98,9 +98,9 @@ export class Navbar extends Component {
           >
             <span style={{ color: '#F50057', fontSize: `${1.3}em` }}>☰</span>
           </div>
-          <a
+          <Link
             className="navbar-brand d-none d-lg-block"
-            href="/"
+            to="/"
             style={{ fontSize: `${1.3}em` }}
           >
             <span
@@ -119,10 +119,10 @@ export class Navbar extends Component {
             >
               manager
             </span>
-          </a>
-          <a
+          </Link>
+          <Link
             className="navbar-brand d-lg-none text-center"
-            href="/"
+            to="/"
             style={{ fontSize: `${1.3}em` }}
           >
             <span
@@ -141,9 +141,10 @@ export class Navbar extends Component {
             >
               manager
             </span>
-          </a>
+          </Link>
 
-          <div className="navbar-collapse d-none
+          <div
+            className="navbar-collapse d-none
             d-lg-block nav justify-content-center"
           >
             <ul className="nav d-flex justify-content-center">
@@ -176,71 +177,75 @@ export class Navbar extends Component {
               </form>
             </ul>
           </div>
-          <div className="navbar-collapse d-none d-lg-block
+          <div
+            className="navbar-collapse d-none d-lg-block
             nav justify-content-end"
           >
             <ul className="nav d-flex justify-content-center">
               {!authenticated && (
                 <li className="nav-item">
-                  <a className="nav-link sign-up-lk" href="/signup">
+                  <Link className="nav-link sign-up-lk" to="/signup">
                     sign up
-                  </a>
+                  </Link>
                 </li>
               )}
               {!authenticated && (
                 <li className="nav-item">
-                  <a className="nav-link sign-in-lk" href="/signin">
+                  <Link className="nav-link sign-in-lk" to="/signin">
                     sign in
-                  </a>
+                  </Link>
                 </li>
               )}
               {authenticated &&
                 isAdmin() && (
                   <li>
-                    <a
+                    <Link
                       className="nav-link auth-nav-links add-center-nav"
-                      href="/addcenterone"
+                      to="/addcenterone"
                     >
                       ADD CENTER
-                    </a>
+                    </Link>
                   </li>
                 )}
               {authenticated && (
                 <li>
-                  <a
+                  <Link
                     className="nav-link auth-nav-links centers-nav"
-                    href="/centers"
+                    to="/centers"
                   >
                     CENTERS
-                  </a>
+                  </Link>
                 </li>
               )}
               {authenticated && (
                 <li>
-                  <a
+                  <Link
                     className="nav-link auth-nav-links add-event-nav"
-                    href="/addevent"
+                    to="/addevent"
                   >
                     ADD EVENT
-                  </a>
+                  </Link>
                 </li>
               )}
               {authenticated && (
                 <li>
-                  <a className="nav-link auth-nav-links events-link" href="/">
+                  <Link
+                    className="nav-link auth-nav-links events-link"
+                    to="/"
+                  >
                     YOUR EVENTS
-                  </a>
+                  </Link>
                 </li>
               )}
               {authenticated &&
                 isSuperAdmin() && (
                   <li>
-                    <a
+                    <Link
                       className="nav-link auth-nav-links grant-users-nav"
-                      href="/users"
+                      to="/users"
                     >
                       GRANT ACCESS
-                    </a>
+                    </Link>
                   </li>
                 )}
               {authenticated && (
@@ -264,78 +269,82 @@ export class Navbar extends Component {
             <ul className="navbar-nav mr-auto mt-2 mt-md-0">
               {!authenticated && (
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link text-center"
-                    href="/signup"
+                    to="/signup"
                     style={{ color: 'grey', border: 'none' }}
                   >
                     Sign Up
-                  </a>
+                  </Link>
                 </li>
               )}
 
               {!authenticated && (
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link signin-nav"
-                    href="/signin"
+                    to="/signin"
                     style={{ border: 'none' }}
                   >
                     Sign In
-                  </a>
+                  </Link>
                 </li>
               )}
               {authenticated && (
                 <li className="nav-item" style={{ border: 'none' }}>
-                  <a
+                  <Link
                     className="nav-link"
-                    href="/addevent"
+                    to="/addevent"
                     style={{ border: 'none' }}
                   >
                     Add event
-                  </a>
+                  </Link>
                 </li>
               )}
               {authenticated && (
                 <li className="nav-item">
-                  <a className="nav-link" href="/" style={{ border: 'none' }}>
+                  <Link
+                    className="nav-link"
+                    to="/"
+                    style={{ border: 'none' }}
+                  >
                     Your events
-                  </a>
+                  </Link>
                 </li>
               )}
               {authenticated &&
                 isAdmin() && (
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="nav-link"
-                      href="/addcenterone"
+                      to="/addcenterone"
                       style={{ border: 'none' }}
                     >
                       Add center
-                    </a>
+                    </Link>
                   </li>
                 )}
               {authenticated && (
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link"
-                    href="/centers"
+                    to="/centers"
                     style={{ border: 'none' }}
                   >
                     Centers
-                  </a>
+                  </Link>
                 </li>
               )}
               {authenticated &&
                 isSuperAdmin() && (
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="nav-link"
-                      href="/users"
+                      to="/users"
                       style={{ border: 'none' }}
                     >
                       Grant Access
-                    </a>
+                    </Link>
                   </li>
                 )}
               {authenticated && (
@@ -391,7 +400,7 @@ export default connect(
   mapStateToprops,
   {
     logOut,
-    getAllCenters,
+    getAllCenters
   }
 )(Navbar);
 

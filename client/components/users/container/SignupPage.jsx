@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 import isAdmin from '../../../helpers/isAdmin';
 import { userSignup, clearError } from '../../../actions/userActions';
@@ -183,7 +183,7 @@ export class SignupPage extends Component {
                         marginBottom: '10px'
                       }}
                     >
-                      <a to="/signin">here</a>
+                      <Link to="/signin"> here</Link>
                     </span>
                   </p>
                 </div>

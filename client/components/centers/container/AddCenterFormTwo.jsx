@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 import { getRentalCostAndFacilities } from '../../../actions/centerActions';
 import prefillCheckBox from '../../../utils/checkboxprefill';
 import AuthPages from '../../HOC/AuthPages';
-import { checkInvalidRentalCostAndFacilities } from
-  '../../../validations/addcenter.validate';
+import { checkInvalidRentalCostAndFacilities } from '../../../validations/addcenter.validate';
 import { actionRejectedPrompter } from '../../../utils/alerts.sweetalert';
 
 /**
@@ -16,27 +15,28 @@ import { actionRejectedPrompter } from '../../../utils/alerts.sweetalert';
  * @extends {Component}
  */
 export class AddCenterFormTwo extends Component {
-/**
- * Creates an instance of AddCenterFormTwo.
- * @param {any} props
- * @memberof AddCenterFormTwo
- */
+  /**
+   * Creates an instance of AddCenterFormTwo.
+   * @param {any} props
+   * @memberof AddCenterFormTwo
+   */
   constructor(props) {
     super(props);
     this.state = {
       facilities: [],
-      rentalCost: '',
+      rentalCost: ''
     };
     this.getRentalCost = this.getRentalCost.bind(this);
     this.addFacilities = this.addFacilities.bind(this);
-    this.addFacilitiesAndRentalCost = this.addFacilitiesAndRentalCost.bind(this); // eslint-disable-line
+    this.addFacilitiesAndRentalCost = this.addFacilitiesAndRentalCost.bind(this
+    ); // eslint-disable-line
   }
   /**
- *
- *
- * @memberof AddCenterFormTwo
- * @returns {object} state if user is unauthenticated
- */
+   *
+   *
+   * @memberof AddCenterFormTwo
+   * @returns {object} state if user is unauthenticated
+   */
   componentWillMount() {
     if (!this.props.center.status.addedPrimaryCenterDetails) {
       browserHistory.push('/addcenterone');
@@ -46,33 +46,33 @@ export class AddCenterFormTwo extends Component {
     }
   }
   /**
- *
- *
- * @memberof AddCenterFormTwo
- * @returns {null} calls function to prefill checkbox if user
- * is returning to this page.
- */
+   *
+   *
+   * @memberof AddCenterFormTwo
+   * @returns {null} calls function to prefill checkbox if user
+   * is returning to this page.
+   */
   componentDidMount() {
     if (this.state.facilities.length > 0) {
       prefillCheckBox(this.state.facilities);
     }
   }
   /**
- *
- *
- * @param {any} event
- * @memberof AddCenterFormTwo
- * @returns {string} value of field input
- */
+   *
+   *
+   * @param {any} event
+   * @memberof AddCenterFormTwo
+   * @returns {string} value of field input
+   */
   getRentalCost(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
   /**
- *
- * @param {any} event
- * @memberof AddCenterFormTwo
- * @returns {string} the value of facilities input chexkbox
- */
+   *
+   * @param {any} event
+   * @memberof AddCenterFormTwo
+   * @returns {string} the value of facilities input chexkbox
+   */
   addFacilities(event) {
     if (this.state.facilities.includes(event.target.value)) {
       this.state.facilities.splice(
@@ -84,12 +84,12 @@ export class AddCenterFormTwo extends Component {
     }
   }
   /**
- *
- *
- * @param {object} event element event object
- * @memberof AddCenterFormTwo
- * @returns {object} state after an action is called
- */
+   *
+   *
+   * @param {object} event element event object
+   * @memberof AddCenterFormTwo
+   * @returns {object} state after an action is called
+   */
   addFacilitiesAndRentalCost(event) {
     event.preventDefault();
     const validationErrors = checkInvalidRentalCostAndFacilities(this.state);
@@ -97,16 +97,16 @@ export class AddCenterFormTwo extends Component {
       return actionRejectedPrompter(validationErrors);
     }
     this.props.dispatch(getRentalCostAndFacilities({
-      ...this.state,
+      ...this.state
     }));
     browserHistory.push('/addcenterthree');
   }
   /**
- *
- *
- * @returns {object} html document object
- * @memberof AddCenterFormTwo
- */
+   *
+   *
+   * @returns {object} html document object
+   * @memberof AddCenterFormTwo
+   */
   render() {
     const { rentalCost } = this.state;
     return (
@@ -121,7 +121,7 @@ export class AddCenterFormTwo extends Component {
                 className="text-center header-form"
                 style={{ marginTop: `${3}%` }}
               >
-              Select Facilities And Rentalcost
+                Select Facilities And Rentalcost
               </p>
             </div>
             <form
@@ -141,10 +141,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="parkingLot"
-                  >Parking-lot
+                  <label style={{ display: 'block' }} htmlFor="parkingLot">
+                    Parking-lot
                   </label>
                 </div>
                 <div className="col">
@@ -156,10 +154,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="projector"
-                  >Projector(s)
+                  <label style={{ display: 'block' }} htmlFor="projector">
+                    Projector(s)
                   </label>
                 </div>
                 <div className="col">
@@ -171,10 +167,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="swimming-pool"
-                  >Swimming-pool
+                  <label style={{ display: 'block' }} htmlFor="swimming-pool">
+                    Swimming-pool
                   </label>
                 </div>
                 <div className="col">
@@ -186,11 +180,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="lounge"
-                  >
-                  Lounge
+                  <label style={{ display: 'block' }} htmlFor="lounge">
+                    Lounge
                   </label>
                 </div>
                 <div className="col">
@@ -202,10 +193,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="changingroom"
-                  >Changing-room
+                  <label style={{ display: 'block' }} htmlFor="changingroom">
+                    Changing-room
                   </label>
                 </div>
                 <div className="col">
@@ -217,10 +206,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="barbecue"
-                  >Parking-lot
+                  <label style={{ display: 'block' }} htmlFor="barbecue">
+                    Parking-lot
                   </label>
                 </div>
                 <div className="col">
@@ -232,10 +219,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="restroom"
-                  >Rest room
+                  <label style={{ display: 'block' }} htmlFor="restroom">
+                    Rest room
                   </label>
                 </div>
                 <div className="col">
@@ -247,10 +232,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="photogallery"
-                  >Photo gallery
+                  <label style={{ display: 'block' }} htmlFor="photogallery">
+                    Photo gallery
                   </label>
                 </div>
                 <div className="col">
@@ -262,10 +245,8 @@ export class AddCenterFormTwo extends Component {
                     style={{ height: `${25}px`, width: `${25}px` }}
                     onClick={this.addFacilities}
                   />
-                  <label
-                    style={{ display: 'block' }}
-                    htmlFor="photogallery"
-                  >Catering Area
+                  <label style={{ display: 'block' }} htmlFor="photogallery">
+                    Catering Area
                   </label>
                 </div>
               </div>
@@ -311,34 +292,32 @@ export class AddCenterFormTwo extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch =>
-  ({
-    dispatch: (actionObject => dispatch(actionObject))
-  });
+const mapDispatchToProps = dispatch => ({
+  dispatch: actionObject => dispatch(actionObject)
+});
 
-const mapStateToProps = state =>
-  ({
-    user: state.userReducer,
-    center: state.centerReducer,
-  });
+const mapStateToProps = state => ({
+  user: state.userReducer,
+  center: state.centerReducer
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(AuthPages(AddCenterFormTwo));
 
 const propTypes = {
   center: PropTypes.shape({
     rentalCostAndFacilities: PropTypes.shape({
       facilities: PropTypes.arrayOf(PropTypes.string),
-      rentalCost: PropTypes.string,
+      rentalCost: PropTypes.string
     }),
     status: PropTypes.shape({
       error: PropTypes.bool,
-      addedPrimaryCenterDetails: PropTypes.bool,
-    }),
+      addedPrimaryCenterDetails: PropTypes.bool
+    })
   }).isRequired,
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 AddCenterFormTwo.propTypes = propTypes;

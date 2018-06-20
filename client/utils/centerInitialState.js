@@ -11,7 +11,6 @@ const initialState = () => {
       rentalCost: undefined,
     },
     oneCenter: {
-      aCenter: {},
       message: '',
     },
     primaryCenterDetails: {

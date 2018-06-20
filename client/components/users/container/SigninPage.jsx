@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import PropTypes from 'prop-types';
 import { userLogin, clearError } from '../../../actions/userActions';
 import { LoadingIcon } from '../../utils/LoaderComponents';
@@ -162,7 +162,7 @@ export class SigninPage extends Component {
                 >
                   Do not have an account? sign up
                   <span className="switchform" style={{ color: 'skyblue' }}>
-                    <a href="/signup"> here</a>
+                    <Link to="/signup"> here</Link>
                   </span>
                 </p>
               </div>
